@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/pages/detalhes-produto.dart';
-import 'package:hackadev/produtos_data.dart';
-import 'categorias_widget.dart';
+import 'package:hackadev/CategoriasWidget.dart';
+//import 'package:hackadev/pages/detalhes-produto.dart';
+//import 'package:hackadev/produtos_data.dart';
+import 'package:hackadev/telaListaProdutos.dart';
+
 
 
 void main() {
