@@ -9,8 +9,12 @@ class TelaDetalhesProduto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detalhes do Produto'),
+      ),
+       body: Column(
+        children: [
         Center(
           child: AspectRatio(
             aspectRatio: 1,
@@ -35,7 +39,7 @@ class TelaDetalhesProduto extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: RichText(
             text: const TextSpan(
-              style: TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(fontSize: 16, color: Color(0xFF2B2B2B)),
               children: <TextSpan>[
                 TextSpan(
                   text: 'Descrição: ',
@@ -57,10 +61,8 @@ class TelaDetalhesProduto extends StatelessWidget {
             // Por exemplo, mostrar um diálogo de confirmação ou adicionar ao carrinho
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(
-                255, 255, 255, 255), // Cor de fundo personalizada
             elevation: 4, // Define a elevação (sombra) do botão
-            shadowColor: Colors.black, // Cor da sombra
+            shadowColor: Color(0xFF2B2B2B), // Cor da sombra
             shape: RoundedRectangleBorder(
               borderRadius:
                   BorderRadius.circular(50), // Define o raio do arredondamento
@@ -78,7 +80,7 @@ class TelaDetalhesProduto extends StatelessWidget {
                 Text(
                   'Adicionar',
                   style: TextStyle(
-                    color: Colors.green[900], // Cor do texto
+                    color: Color(0xFF52E636), // Cor do texto
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
@@ -88,6 +90,7 @@ class TelaDetalhesProduto extends StatelessWidget {
           ),
         ),
       ],
+      ),
     );
   }
 }
