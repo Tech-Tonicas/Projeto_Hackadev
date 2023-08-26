@@ -67,6 +67,5 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
           ],
         ),
       );
-    
   }
 }
