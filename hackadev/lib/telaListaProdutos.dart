@@ -3,8 +3,7 @@ import './produtos.dart';
 import './detalhesProdutos.dart';
 
 class TelaListaProdutos extends StatefulWidget {
-
-  const TelaListaProdutos({super.key}); 
+  const TelaListaProdutos({super.key});
   @override
   State<TelaListaProdutos> createState() => _TelaListaProdutosState();
 }
@@ -12,10 +11,11 @@ class TelaListaProdutos extends StatefulWidget {
 class _TelaListaProdutosState extends State<TelaListaProdutos> {
   List<Produto> produtos = ProdutosData.produtos;
 
- // Utilize a lista de produtos
+  // Utilize a lista de produtos
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
+    return Expanded(
+      child: SingleChildScrollView(
         child: Column(
           children: [
             for (int i = 0; i < produtos.length; i += 2)
@@ -28,7 +28,8 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TelaDetalhesProduto(produto: produtos[j]),
+                              builder: (context) =>
+                                  TelaDetalhesProduto(produto: produtos[j]),
                             ),
                           );
                         },
@@ -42,17 +43,20 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                produtos[j].nome,                              
+                                produtos[j].nome,
                               ),
-                              const SizedBox(height: 2),                                                           
+                              const SizedBox(height: 2),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Ajuste o espaçamento conforme necessário
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical:
+                                        8), // Ajuste o espaçamento conforme necessário
                                 child: Text(
                                   'R\$ ${produtos[j].preco.toStringAsFixed(2)}',
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 1, 105, 6),
+                                    color: Color(0xFF52E636),
                                   ),
                                 ),
                               ),
@@ -66,6 +70,7 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
               ),
           ],
         ),
-      );
+      ),
+    );
   }
 }
