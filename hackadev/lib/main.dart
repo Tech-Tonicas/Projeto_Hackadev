@@ -20,7 +20,28 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       color: const Color(0xFF2B2B2B),
       home: Scaffold(
-        appBar: AppBar(),
+        appbar: AppBar(
+          elevation: 5,
+          toolbarHeigtht: 150,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.menu),
+            ),
+          ],
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/imagens/img.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
         body: const Column(
           children: [
             CategoriasWidget(), // Usando o widget de categorias
