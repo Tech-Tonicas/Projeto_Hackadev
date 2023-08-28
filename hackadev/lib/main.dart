@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark(),
       color: const Color(0xFF2B2B2B),
       home: Scaffold(
-        appbar: AppBar(
+        appBar: AppBar(
           elevation: 5,
-          toolbarHeigtht: 150,
+          toolbarHeight: 150,
           actions: [
             IconButton(
               onPressed: () {},
