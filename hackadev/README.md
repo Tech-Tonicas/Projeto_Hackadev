@@ -1,16 +1,40 @@
-# hackadev
+![Digital Wave](https://github.com/Tech-Tonicas/Projeto_Hackadev/assets/124733442/83b2b182-fee4-4c38-8364-79156abb08ec)
+## Digital Wave - Hackadev
+Esse projeto foi desenvolvido através do curso da Imã.
 
-A new Flutter project.
+## ✅ Objetivo do projeto
+Criar um aplicativo ecommerce de produtos eletrônicos utilizando a linguagem Dart e o Framework Flutter.
 
-## Getting Started
+## Status do projeto
+🚧 Em construção 🚧
 
-This project is a starting point for a Flutter application.
+## 💻 Funcionalidades
+*	Funcionalidade 1: Listagem geral dos produtos;
+*	Funcionalidade 2: Listagem por categorias;
+*	Funcionalidade 3: Menu de navegação.
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Ferramentas utilizadas
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+*	Flutter [https://docs.flutter.dev/get-started/install]
+*	Dart [https://dart.dev/]
+*	Visual Studio Code [https://code.visualstudio.com/]
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Como executar
+1.	Clone este repositório: git clone https://github.com/seu-usuario/nome-do-repositorio.git
+2.	Navegue até o diretório do projeto: cd nome-do-repositorio
+3.	Instale as dependências: flutter pub get
+4.	Execute o aplicativo: flutter run
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Autoras
+##### Bianca Rodrigues
+##### Caroline Dantas
+##### Emily Ferreira 
+##### Helaine Ribeiro
+##### Gildeane Araújo
+##### Karine Farias
+##### Núbia Santos
+##### Priscila Mendonça
+##### Priscylla Sousa
+
+
+
