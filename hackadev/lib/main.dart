@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget{
       home: Scaffold(
         appBar: AppBar(
           elevation: 5,
-          toolbarHeight: 150,
+          toolbarHeight: 100,
           actions: [
             IconButton(
               onPressed: () {},
