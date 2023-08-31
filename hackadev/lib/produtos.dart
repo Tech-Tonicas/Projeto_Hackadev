@@ -45,9 +45,9 @@ class ProdutosData {
       descricao: 'descricao',
     ),
     Produto(
-      nome: 'Monitor Galaxia',
+      nome: 'Monitor Nature',
       preco: 489.99,
-      urlImagem: 'imagens/monitor/monitorGalaxia.png',
+      urlImagem: 'imagens/monitor/monitorNature.png',
       descricao: 'descricao',
     ),
     Produto(
@@ -69,9 +69,9 @@ class ProdutosData {
       descricao: 'descricao',
     ),
     Produto(
-      nome: 'Monitor Nature',
+      nome: 'Monitor Galaxia',
       preco: 229.99,
-      urlImagem: 'imagens/monitor/monitorNature.png',
+      urlImagem: 'imagens/monitor/monitorGalaxia.png',
       descricao: 'descricao',
     ),
     Produto(
