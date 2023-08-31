@@ -1,95 +1,116 @@
 import 'package:flutter/material.dart';
 import './produtos.dart';
-// Importe o arquivo produtos_data.dart
 
-class TelaDetalhesProduto extends StatelessWidget {
+class TelaDetalhesProduto extends StatefulWidget {
   final Produto produto;
 
-  const TelaDetalhesProduto({super.key, required this.produto});
+  const TelaDetalhesProduto({Key? key, required this.produto}) : super(key: key);
+
+  @override
+  _TelaDetalhesProdutoState createState() => _TelaDetalhesProdutoState();
+}
+
+class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
+  bool isButtonPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalhes do Produto'),
+        title: Text(widget.produto.nome),
       ),
-       body: Column(
-        children: [
-        Center(
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: Image.asset(
-              produto.urlImagem,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          produto.nome,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          'Preço: R\$${produto.preco.toStringAsFixed(2)}',
-          style: const TextStyle(fontSize: 16),
-        ),
-        const SizedBox(height: 8),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: RichText(
-            text: const TextSpan(
-              style: TextStyle(fontSize: 16, color: Color(0xFF2B2B2B)),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Descrição: ',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Container(
+                width: 200,
+                height: 200,
+                child: Image.asset(
+                  widget.produto.urlImagem,
+                  fit: BoxFit.contain,
                 ),
-                TextSpan(
-                  text:
-                      'Curta suas músicas com qualidade excepcional usando o nosso fone de ouvido preto. Design moderno e elegante, isolamento de ruído passivo e som claro e balanceado. Perfeito para suas atividades diárias ou para mergulhar no mundo da música.',
+              ),
+            ),
+            SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                widget.produto.nome,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: [
+                  Text(
+                    '${widget.produto.formattedPreco}',
+                    style: TextStyle(fontSize: 18, color: isButtonPressed ? Color(0xFF52E636) : Color(0xFF52E636)),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Descrição do Produto',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                widget.produto.descricao,
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 24),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isButtonPressed = !isButtonPressed;
+                  });
+                  // Lógica para a ação de comprar o produto
+                  // Por exemplo, mostrar um diálogo de confirmação ou adicionar ao carrinho
+                },
+                style: ElevatedButton.styleFrom(
+                  elevation: 4,
+                  shadowColor: Color(0xFF2B2B2B),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  primary: isButtonPressed ? Color(0xFF52E636) : Colors.white, // Define a cor do botão
                 ),
-              ],
-            ),
-            textAlign: TextAlign.justify,
-          ),
-        ),
-        const SizedBox(height: 4),
-        ElevatedButton(
-          onPressed: () {
-            // Lógica para a ação de comprar o produto
-            // Por exemplo, mostrar um diálogo de confirmação ou adicionar ao carrinho
-          },
-          style: ElevatedButton.styleFrom(
-            elevation: 4, // Define a elevação (sombra) do botão
-            shadowColor: Color(0xFF2B2B2B), // Cor da sombra
-            shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.circular(50), // Define o raio do arredondamento
-            ),
-          ),
-          child: Container(
-            constraints: const BoxConstraints(
-              maxWidth: 200, // Define a largura máxima
-            ),
-            height: 40, // Altura desejada do botão
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(width: 4), // Espaço entre o ícone e o texto
-                Text(
-                  'Adicionar',
-                  style: TextStyle(
-                    color: Color(0xFF52E636), // Cor do texto
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                child: Container(
+                  constraints: BoxConstraints(maxWidth: 200),
+                  height: 40,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.shopping_cart, color: isButtonPressed ? Colors.white : Color(0xFF52E636)),
+                      SizedBox(width: 8),
+                      Text(
+                        'Adicionar ao Carrinho',
+                        style: TextStyle(
+                          color: isButtonPressed ? Colors.white : Color(0xFF52E636),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
+            SizedBox(height: 24),
+          ],
         ),
-      ],
       ),
     );
   }
