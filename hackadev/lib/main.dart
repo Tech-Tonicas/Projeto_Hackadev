@@ -13,9 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Loja Virtual",
+      title: "Digital Wave",
       theme: ThemeData.dark(),
-      color: const Color(0xff2B2B2B),
       home: Scaffold(
         appBar: AppBar(
           elevation: 5,
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/imagens/img.png'),
+                image: AssetImage('logo/logo.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -42,9 +41,10 @@ class MyApp extends StatelessWidget {
           children: [
             CategoriasWidget(), //Usando o widget de categorias
             TelaListaProdutos(), //Usando a classe TelaListaProdutos
-            Expanded(
-              child: MenuNavegacao(),
-            ),
+             SizedBox(
+                height: 90, // Defina a altura desejada
+                child: MenuNavegacao(),
+              ),
           ],
         ),
       ),
