@@ -2,91 +2,113 @@ class Produto {
   final String nome;
   final double preco;
   final String urlImagem;
+  final String descricao;
 
-  Produto({required this.nome, required this.preco, required this.urlImagem});
+  Produto({required this.nome, required this.preco, required this.urlImagem, required this.descricao});
+
+  String get formattedPreco {
+    String precoString = preco.toStringAsFixed(2);
+    return 'R\$ ${precoString.replaceAll('.', ',')}';
+  }
 }
 
 class ProdutosData {
   static final List<Produto> produtos = [
     Produto(
-      nome: 'Headphone Wave PF1508 Preto',
+      nome: 'Fone Preto',
       preco: 249.99,
       urlImagem: 'imagens/fones/fonePreto.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Monitor 24 polegadas Widescreen',
+      nome: 'Monitor Color',
       preco: 649.99,
       urlImagem: 'imagens/monitor/monitorColor.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Mouse Gamer Azul',
+      nome: 'Mouse Azul',
       preco: 149.99,
       urlImagem: 'imagens/mouse/mouseAzul.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Teclado Gamer RGB Azul',
+      nome: 'Teclado Caveira',
       preco: 229.99,
-      urlImagem: 'imagens/teclados/rgbAzul.png',
+      urlImagem: 'imagens/teclados/tecladoCaveira.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Headphone sem fio WAPT 8000 Preto/Azul',
+      nome: 'Fone Preto Azul',
       preco: 169.99,
       urlImagem: 'imagens/fones/fonePretoAzul.png',
-    ),
-    Produto(
-      nome: 'Monitor Full HD Led Nature',
-      preco: 489.99,
-      urlImagem: 'imagens/monitor/monitorNature.png',
-    ),
-    Produto(
-      nome: 'Mouse Mobile Portable Colors',
-      preco: 129.99,
-      urlImagem: 'imagens/mouse/mouseColors.png',
-    ),
-    Produto(
-      nome: 'Teclado Gamer Sate RGB USB ',
-      preco: 389.29,
-      urlImagem: 'imagens/teclados/tecladoRGB.png',
-    ),
-    Produto(
-      nome: 'Fone sem Fio Preto Marrom',
-      preco: 189.99,
-      urlImagem: 'imagens/fones/fonePretoMarrom.png',
+      descricao: 'descricao',
     ),
     Produto(
       nome: 'Monitor Galaxia',
-      preco: 229.99,
+      preco: 489.99,
       urlImagem: 'imagens/monitor/monitorGalaxia.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Mouse Preto com Fio ',
+      nome: 'Mouse Colors',
+      preco: 129.99,
+      urlImagem: 'imagens/mouse/mouseColors.png',
+      descricao: 'descricao',
+    ),
+    Produto(
+      nome: 'Teclado RGB',
+      preco: 389.29,
+      urlImagem: 'imagens/teclados/tecladoRGB.png',
+      descricao: 'descricao',
+    ),
+    Produto(
+      nome: 'Fone Preto Marrom',
+      preco: 189.99,
+      urlImagem: 'imagens/fones/fonePretoMarrom.png',
+      descricao: 'descricao',
+    ),
+    Produto(
+      nome: 'Monitor Nature',
+      preco: 229.99,
+      urlImagem: 'imagens/monitor/monitorNature.png',
+      descricao: 'descricao',
+    ),
+    Produto(
+      nome: 'Mouse G',
       preco: 149.99,
-      urlImagem: 'imagens/mouse/mousePreto.png',
+      urlImagem: 'imagens/mouse/mouseG.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Teclado USB com Fio',
+      nome: 'Teclado Teclas Laranja',
       preco: 49.99,
       urlImagem: 'imagens/teclados/teclasLaranja.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Headphone Rosa com Fio',
+      nome: 'Fone Rosa',
       preco: 189.99,
       urlImagem: 'imagens/fones/foneRosa.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Monitor 14 polegadas Star Wars',
+      nome: 'Monitor Star Wars',
       preco: 599.99,
       urlImagem: 'imagens/monitor/monitorStarWars.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Mouse Roxo BT21',
+      nome: 'Mouse Verde',
       preco: 49.99,
-      urlImagem: 'imagens/mouse/mouseRoxo.png',
+      urlImagem: 'imagens/mouse/mouseVerde.png',
+      descricao: 'descricao',
     ),
     Produto(
-      nome: 'Teclado sem Fio USB',
+      nome: 'Teclado Teclas Vermelhas',
       preco: 69.99,
       urlImagem: 'imagens/teclados/teclasVermelhas.png',
+      descricao: 'descricao',
     )
   ];
 }
