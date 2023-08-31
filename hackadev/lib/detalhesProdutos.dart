@@ -67,6 +67,7 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
               child: Text(
                 widget.produto.descricao,
                 style: TextStyle(fontSize: 16, color: Colors.white),
+                textAlign: TextAlign.justify,
               ),
             ),
             SizedBox(height: 24),
