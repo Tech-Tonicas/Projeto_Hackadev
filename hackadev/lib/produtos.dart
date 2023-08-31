@@ -9,47 +9,47 @@ class Produto {
 class ProdutosData {
   static final List<Produto> produtos = [
     Produto(
-      nome: 'Fone Preto',
+      nome: 'Headphone Wave PF1508 Preto',
       preco: 249.99,
       urlImagem: 'imagens/fones/fonePreto.png',
     ),
     Produto(
-      nome: 'Monitor Color',
+      nome: 'Monitor 24 polegadas Widescreen',
       preco: 649.99,
       urlImagem: 'imagens/monitor/monitorColor.png',
     ),
     Produto(
-      nome: 'Mouse Azul',
+      nome: 'Mouse Gamer Azul',
       preco: 149.99,
       urlImagem: 'imagens/mouse/mouseAzul.png',
     ),
     Produto(
-      nome: 'Teclado RGB Azul',
+      nome: 'Teclado Gamer RGB Azul',
       preco: 229.99,
       urlImagem: 'imagens/teclados/rgbAzul.png',
     ),
     Produto(
-      nome: 'Fone Preto Azul',
+      nome: 'Headphone sem fio WAPT 8000 Preto/Azul',
       preco: 169.99,
       urlImagem: 'imagens/fones/fonePretoAzul.png',
     ),
     Produto(
-      nome: 'Monitor Nature',
+      nome: 'Monitor Full HD Led Nature',
       preco: 489.99,
       urlImagem: 'imagens/monitor/monitorNature.png',
     ),
     Produto(
-      nome: 'Mouse Colors',
+      nome: 'Mouse Mobile Portable Colors',
       preco: 129.99,
       urlImagem: 'imagens/mouse/mouseColors.png',
     ),
     Produto(
-      nome: 'Teclado RGB',
+      nome: 'Teclado Gamer Sate RGB USB ',
       preco: 389.29,
       urlImagem: 'imagens/teclados/tecladoRGB.png',
     ),
     Produto(
-      nome: 'Fone Preto Marrom',
+      nome: 'Fone sem Fio Preto Marrom',
       preco: 189.99,
       urlImagem: 'imagens/fones/fonePretoMarrom.png',
     ),
@@ -59,32 +59,32 @@ class ProdutosData {
       urlImagem: 'imagens/monitor/monitorGalaxia.png',
     ),
     Produto(
-      nome: 'Mouse Preto',
+      nome: 'Mouse Preto com Fio ',
       preco: 149.99,
       urlImagem: 'imagens/mouse/mousePreto.png',
     ),
     Produto(
-      nome: 'Teclado Teclas Laranja',
+      nome: 'Teclado USB com Fio',
       preco: 49.99,
       urlImagem: 'imagens/teclados/teclasLaranja.png',
     ),
     Produto(
-      nome: 'Fone Rosa',
+      nome: 'Headphone Rosa com Fio',
       preco: 189.99,
       urlImagem: 'imagens/fones/foneRosa.png',
     ),
     Produto(
-      nome: 'Monitor Star Wars',
+      nome: 'Monitor 14 polegadas Star Wars',
       preco: 599.99,
       urlImagem: 'imagens/monitor/monitorStarWars.png',
     ),
     Produto(
-      nome: 'Mouse Roxo',
+      nome: 'Mouse Roxo BT21',
       preco: 49.99,
       urlImagem: 'imagens/mouse/mouseRoxo.png',
     ),
     Produto(
-      nome: 'Teclado Teclas Vermelhas',
+      nome: 'Teclado sem Fio USB',
       preco: 69.99,
       urlImagem: 'imagens/teclados/teclasVermelhas.png',
     )

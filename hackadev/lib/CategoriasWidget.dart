@@ -25,7 +25,7 @@ class CategoriasWidget extends StatelessWidget{
 
         },style:ElevatedButton.styleFrom(
           foregroundColor: const Color(0xFF52E636), backgroundColor: const Color(0xFF2B2B2B)
-        ), icon:const Icon(Icons.keyboard,size: 50.0,), label:const Text("teclados")),
+        ), icon:const Icon(Icons.keyboard,size: 50.0,), label:const Text("Teclados")),
 
         ElevatedButton.icon(onPressed: () {
           //Função do botão
