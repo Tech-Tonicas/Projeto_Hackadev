@@ -47,19 +47,16 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                               ),
                               const SizedBox(height: 2),
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical:
-                                        8), // Ajuste o espaçamento conforme necessário
-                                child: Text(
-                                  'R\$ ${produtos[j].preco.toStringAsFixed(2)}',
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFF52E636),
-                                  ),
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              child: Text(
+                                produtos[j].formattedPreco,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF52E636),
                                 ),
                               ),
+                            ),
                               const SizedBox(height: 16),
                             ],
                           ),

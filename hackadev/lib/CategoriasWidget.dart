@@ -1,46 +1,86 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/TelaProdutosCategorias.dart';
+import 'produtos.dart';
 
-class CategoriasWidget extends StatelessWidget{
+class CategoriasWidget extends StatelessWidget {
   const CategoriasWidget({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        ElevatedButton.icon(onPressed: () {
-          //Função do botão
-
-        },style:ElevatedButton.styleFrom(
-          foregroundColor: const Color(0xFF52E636), backgroundColor: const Color(0xFF2B2B2B),
-        ), icon:const Icon(Icons.monitor,size: 50.0,), label:const Text("Monitores")),
-        ElevatedButton.icon(onPressed: () {
-          //Função do botão
-
-        },style:ElevatedButton.styleFrom(
-          foregroundColor: const Color(0xFF52E636), backgroundColor: const Color(0xFF2B2B2B)
-        ), icon:const Icon(Icons.mouse_rounded,size: 50.0,), label:const Text("Mouse")),
-
-        ElevatedButton.icon(onPressed: () {
-          //Função do botão
-
-        },style:ElevatedButton.styleFrom(
-          foregroundColor: const Color(0xFF52E636), backgroundColor: const Color(0xFF2B2B2B)
-        ), icon:const Icon(Icons.keyboard,size: 50.0,), label:const Text("Teclados")),
-
-        ElevatedButton.icon(onPressed: () {
-          //Função do botão
-
-        },style:ElevatedButton.styleFrom(
-          foregroundColor: const Color(0xFF52E636), backgroundColor: const Color(0xFF2B2B2B)
-        ), icon:const Icon(Icons.headphones, size: 50.0,), label:const Text("Fones")),
-
-        
-    
-      
-      ],));
-      
-    
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TelaProdutosCategoria(categoria: 'mouse'),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Icon(
+                Icons.mouse,size: 25,color: Color(0xFF52E636),            
+              ),
+            ],
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    TelaProdutosCategoria(categoria: 'monitor'),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Icon(
+                Icons.monitor_sharp,size: 25,color: Color(0xFF52E636),
+              ),
+            ],
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    TelaProdutosCategoria(categoria: 'teclado'),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Icon(
+                Icons.keyboard_alt_outlined,size: 25,color: Color(0xFF52E636),
+              ),
+            ],
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TelaProdutosCategoria(categoria: 'fone'),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Icon(
+                Icons.headphones_outlined,size: 25,color: Color(0xFF52E636),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
-
-
 }
