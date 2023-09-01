@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('logo/logo.png'),
+                image: AssetImage('logo/teste1.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
             CategoriasWidget(), //Usando o widget de categorias
             TelaListaProdutos(), //Usando a classe TelaListaProdutos
              SizedBox(
-                height: 90, // Defina a altura desejada
+                height: 91, // Defina a altura desejada
                 child: MenuNavegacao(),
               ),
           ],
