@@ -23,10 +23,6 @@ class MyApp extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(Icons.search),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
           ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
