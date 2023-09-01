@@ -1,4 +1,4 @@
-![Digital Wave](https://github.com/Tech-Tonicas/Projeto_Hackadev/assets/124733442/83b2b182-fee4-4c38-8364-79156abb08ec)
+<img style="margin-left:15px;" height="350px" width="350px" alt="Logo Tech-Tonicas" src="https://raw.githubusercontent.com/Tech-Tonicas/Projeto_Hackadev/main/hackadev/assets/logo/teste1.jpeg">
 ## Digital Wave - Hackadev
 Esse projeto foi desenvolvido através do curso da Imã.
 
