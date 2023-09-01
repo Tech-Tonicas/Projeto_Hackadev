@@ -88,14 +88,14 @@ class ProdutosData {
     Produto(
       nome: 'Mouse G203',
       preco: 149.99,
-      urlImagem: 'imagens/mouse/mouseG.png',
+      urlImagem: 'imagens/mouse/mouseRoxo.png',
       categorias: 'mouse',
       descricao: 'O G203 LIGHTSYNC vem pronto para jogar com um sensor de 8.000 DPI e cores RGB LIGHTSYNC personalizáveis. A iluminação RGB LIGHTSYNC pode ser personalizada com efeitos ou padrões de ondas de cores em aproximadamente 16,8 milhões de cores para se adequar ao seu estilo, configuração e humor. O sensor de nível avançado para jogos responde com precisão aos seus movimentos.',
     ),
     Produto(
       nome: 'Teclado Gamer Action',
       preco: 49.99,
-      urlImagem: 'imagens/teclados/teclasLaranja.png',
+      urlImagem: 'imagens/teclados/tecladoAzul.png',
       categorias: 'teclado',
       descricao: 'Desenvolvido para otimizar seu desempenho, o teclado game TC200 tem teclas destacadas para uma fácil localização durante os jogos. Padrão ABNT2 e conexão USB. TECLADO ACTION: Padrão ABNT2 / Teclas destacadas para uma fácil localização durante os jogos / Conexão USB / Multimídia / 16 teclas de atalho / Teclas macias e silenciosas',
     ),
@@ -123,7 +123,7 @@ class ProdutosData {
     Produto(
       nome: 'Teclado Multilaser',
       preco: 69.99,
-      urlImagem: 'imagens/teclados/teclasVermelhas.png',
+      urlImagem: 'imagens/teclados/tecladoVerde.png',
       categorias: 'teclado',
       descricao: 'Teclado Multilaser Slim com Fio USB Teclas Silenciosas Preto - TC213, Multilaser, Teclados, Windows ou Mac OS, Preto, PLUG & PLAY Conexão automática, conecte a entrada USB e comece a usar. Teclas super macias e silenciosas para seu conforto. Compatibilidade Windows ou Mac OS.',
     )
