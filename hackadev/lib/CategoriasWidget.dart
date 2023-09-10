@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/TelaProdutosCategorias.dart';
-import 'produtos.dart';
+//import 'produtos.dart';
 
 class CategoriasWidget extends StatelessWidget {
   const CategoriasWidget({super.key});

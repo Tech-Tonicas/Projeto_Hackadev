@@ -38,11 +38,14 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                             children: [
                               Image.asset(
                                 produtos[j].urlImagem,
-                                height: 200,
+                                height: 150,
                                 fit: BoxFit.contain,
                               ),
                               const SizedBox(height: 4),
                               Text(
+                                produtos[j].fabricante,
+                              ),
+                               Text(
                                 produtos[j].nome,
                               ),
                               const SizedBox(height: 2),

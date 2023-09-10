@@ -1,11 +1,12 @@
 class Produto {
+  final String fabricante;
   final String nome;
   final double preco;
   final String urlImagem;
   final String categorias;
   final String descricao;
 
-  Produto({required this.nome, required this.preco, required this.urlImagem, required this.categorias, required this.descricao});
+  Produto({required this.fabricante,required this.nome, required this.preco, required this.urlImagem, required this.categorias, required this.descricao});
 
   String get formattedPreco {
     String precoString = preco.toStringAsFixed(2);
@@ -16,116 +17,146 @@ class Produto {
 class ProdutosData {
   static final List<Produto> produtos = [
     Produto(
-      nome: 'Headset preto',
-      preco: 249.99,
-      urlImagem: 'imagens/fones/fonePreto.png',
+      fabricante: "Fallen",
+      nome: 'Headset Gamer Fallen Pantera Eco, Drivers 50mm, Preto',
+      preco: 199.90,
+      urlImagem: 'imagens/fones/Fone1.png',
       categorias: 'fone',
-      descricao: 'O headset Mancer Twilight traz a união de conforto e estilo, seu visual em preto com detalhes de iluminação Rainbow nos earcups em alto relevo faz dele uma peça essencial pra em qualquer setup ficar ainda mais bonito e completo.',
+      descricao: 'Headset Gamer Fallen Pantera Eco. O Conforto Que Você Precisa. Earpads em courino, que oferecem maior conforto e uma espuma de memória para potencializar a performance do som. Sistema de Som Preciso. Drivers de 50mm, que proporcionam maior precisão do áudio, diminuindo distorções e mantendo a estabilidade durante os jogos.',
     ),
-    Produto(
-      nome: 'Monitor LG',
-      preco: 649.99,
-      urlImagem: 'imagens/monitor/monitorColor.png',
+
+     Produto(
+      fabricante: "Samsung",
+      nome: 'Monitor Gamer Curvo Samsung, tela ultrawide, HDMI',
+      preco: 3299.99,
+      urlImagem: 'imagens/monitor/Monitorsamsung.png',
       categorias: 'monitor',
-      descricao: 'O Monitor LG 21,5" apresenta tela Full HD vibrante e precisa, incluindo Modo Leitura para conforto visual. Flicker Safe reduz fadiga ocular, enquanto AMD FreeSync proporciona jogos suaves. Interface intuitiva permite personalização fácil, e Dynamic Action Sync melhora reações em jogos. Combinação de qualidade visual e recursos práticos.',
+      descricao: 'Monitor Gamer Samsung Odyssey G5 34 VA, Curvo, Wide, 165 Hz, 2K QHD, 1ms, FreeSync Premium, HDR10, HDMI/DisplayPort. Cenas vívidas que te envolvem, abrangente tela com 1000R preenche toda a sua visão periférica e te coloca no lugar do personagem. Viva uma experiência inédita de tirar o fôlego. Gráficos que ultrapassam os limites, resolução Ultra-WQHD proporciona uma visão vasta e abrangente do mundo dos seus jogos com detalhes verdadeiramente realistas. O amplo tamanho da tela elimina a distração de bordas no meio e cabos bagunçados de um setup com dois monitores. Pronto para conquistar os inimigos, sem atrasos e sem oscilações. Taxa de Atualização de 165 Hz. Desempenho ultrarrapido. O AMD FreesSync Premium apresenta uma tecnologia de sincronização adaptável que reduz o travamento de tela, oscilação e atrasos. Gráficos inspiradores com HDR10. Um caleidoscópio de tonalidades dá vida às cenas dos seus jogos de forma mais vibrante do que nunca. Revele os segredos que se escondem nas sombras com pretos profundamente escuros, brancos luminosos e uma resolução incrivelmente detalhada.',
     ),
+
     Produto(
-      nome: 'Mouse sem fio',
-      preco: 149.99,
-      urlImagem: 'imagens/mouse/mouseAzul.png',
+      fabricante: "MSI", 
+      nome: 'Mouse gamer MSI preto INTERCEPTOR DS B1 1600DPI',
+      preco: 99.90,
+      urlImagem: 'imagens/mouse/MOUSE_GAMER_MSI.png',
       categorias: 'mouse',
-      descricao: 'Cliques silenciosos do mouse, conexão USB plug-and-play, controle suave do cursor e design ambidestro',
+      descricao: 'Sensor óptico de gaming grade - botão DPI on-the-fly - design ergonômico e alças laterais anti-deslizamento - superfície antiderrapante - sistema de peso ajustável - conector banhado a ouro Especificações: sensor: óptico - resolução: 1600 DPI - botões: 6 botões - interface: conector USB 2',
     ),
-    Produto(
-      nome: 'Teclado Mecânico Caveira',
-      preco: 229.99,
-      urlImagem: 'imagens/teclados/tecladoCaveira.png',
+
+     Produto(
+      fabricante: " Logitech",
+      nome: 'Teclado Mecânico Gamer, cabo removível, Logitech G - CX',
+      preco: 467.00,
+      urlImagem: 'imagens/teclados/Teclado_Mecanico_Gamer.png',
       categorias: 'teclado',
-      descricao: 'Formato TKL compacto resultando em mais espaço para movimentos do mouse, Layout ABNT2 feito especialmente para o mercado brasileiro, Keycaps feitas com o método double shot injection resultando em legendas duradouras, Iluminação RGB  Chroma Mk2 individual por tecla',
+      descricao: 'Pensado e desenvolvido para você que busca um teclado com alto desempenho de nível competitivo com velocidade e precisão, a Logitech trás o teclado G Pro mecânico para jogos com design tenkeyles, totalmente compacto garantindo maior espaço em sua mesa, para demais itens gamers que utilizar. Os switches GX Clicky oferecem um som de clique nitido e um feedback tátil para obter um pressionamento de tecla sólido e seguro. Sem contar com a iluminação RGB LIGHTSYNC programável e ajustável, sua memória interna permite personalização e armazenamento de iluminação para várias partidas.'
     ),
+
+     Produto(
+      fabricante: "Redragon", 
+      nome: 'Teclado mecânico Redragon TVASTAR RGB azul metalico',
+      preco: 415.25,
+      urlImagem: 'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',
+      categorias: 'teclado',
+      descricao: 'Modelo K566B-RGB - Exclusivo trabalho de pintura azul metálico por toda estrutura do teclado, teclado Mecânico de Alto Desempenho, 19 modos de iluminação RGB incluindo modo de personalização individual de Teclas, teclas para controle Multimídia-12. Controle de Iluminação -On-The-Fly. Funcionamento da Tecla Win -Alternável (Pressione FN+Win para Desligar / Ligar a Tecla). Switches:Redragon Blue. Construção robusta em Plástico ABS para maior Durabilidade. Dimensões 37 x 15 x 3cm',
+    ),
+
     Produto(
-      nome: 'Heaset Gamer Trust',
+      fabricante: "JBL",
+      nome: 'Headset Gamer JBL Quantum One RGB',
       preco: 169.99,
-      urlImagem: 'imagens/fones/fonePretoAzul.png',
+      urlImagem: 'imagens/fones/foneJBL.png',
       categorias: 'fone',
-      descricao: 'Compatível com PS4, Xbox, Switch, PC e Mobile, Fones com malhas acolchoadas de 50mm. Qualidade de som com graves potentes e intensos, Controle de som e silenciador acoplados no fone. Alça ajustável e microfone flexível permitindo posicioná-lo como quiser',
+      descricao: 'JBL QUANTUM ONE. Transforme seu jogo em uma experiência épica. O fone de ouvido com fio JBL Quantum ONE oferece áudio de nível profissional com o rastreamento de cabeça aprimorado JBL QuantumSPHERE 360, som surround espacial e cancelamento de ruído ativo ajustado para jogos. Projetado para posicionamento de áudio preciso, o JBL QuantumSOUND Signature proporciona uma curva de som envolvente por meio dos drivers de 50 mm certificados Hi-Res alta definição. O microfone removível com foco na voz permite interações claras entre os jogadores, com supressão de ruídos, recursos de silenciamento e um seletor de equilíbrio de áudio entre jogo e bate-papo certificado pelo DISCORD. O design leve e ergonômico mantém você confortável enquanto o JBL QuantumENGINE traz opções de customização e perfis de usuário. O fone de ouvido JBL Quantum ONE apresenta o que há de mais moderno em áudio, a fim de proporcionar a mais profunda sensação de realismo. Obtenha vantagem profissional com o rastreamento de cabeça aprimorado JBL QuantumSPHERE 360. O JBL QuantumSPHERE 360*, com tecnologia JBL QuantumENGINE, proporciona a você um nível profissional de posicionamento de áudio 3D em seu PC. A calibragem personalizada do algoritmo da JBL, com o sensor de movimento e o microfone, é feita exclusivamente para o JBL Quantum ONE, proporcionando aos jogadores de PC um posicionamento de áudio preciso e de última geração, além de um ambiente sonoro fixo e independente que melhora seus instintos naturais. O JBL Quantum ONE é equipado com o áudio DTS-X 2.0. *Disponível apenas em PC com conexão USB via JBL QuantumENGINE.',
     ),
+
     Produto(
-      nome: 'Monitor Samsung',
-      preco: 489.99,
-      urlImagem: 'imagens/monitor/monitorNature.png',
+      fabricante: "Apple",
+      nome: 'IMac ME086BZ Apple Intel Core i5 Quad Core - 8GB 1TB LED 21,5"',
+      preco: 5685.00,
+      urlImagem: 'imagens/monitor/iMac_ME086BZ_Apple.png',
       categorias: 'monitor',
-      descricao: 'Monitor Gamer Samsung 27" FHD,75Hz, HDMI, VGA, Freesync,Preto, Série T350',
+      descricao: 'IMAC 21.5 2,7GHz Intel Core i5 quad core, Intel Iris Pro Graphics (Turbo Boost de até 3,2GHz) com 4MB de cache L3 (ME087BZ/A) - Tela de 21,5 polegadas (diagonal), retroiluminada por LED, com tecnologia IPS, resolução de 1920x1080 e suporte para milhões de cores, Disco rígido de 1TB (5400 rpm) Possibilidade de configuração para 1TB Fusion Drive ou para 256GB ou 512GB de armazenamento em flash (SSD). 8GB (dois módulos de 4GB) de memória DDR3 de 1600MHz Possibilidade de configuração para 16GB.',
     ),
     Produto(
-      nome: 'Mouse Fortrek RGB',
-      preco: 129.99,
-      urlImagem: 'imagens/mouse/mouseColors.png',
-      categorias: 'mouse',
-      descricao: 'Com iluminação de LED RGB Rainbow. Design diferenciado, anatômico e moderno: laterais com padrões cuidadosamente desenhados para dar um UP em seu setup. Possui cabo de 1,8 metros com têxtil trançado e conector USB 2.0 (Plug & Play)',
-    ),
-    Produto(
-      nome: 'Teclado Gamer RGB',
-      preco: 389.29,
-      urlImagem: 'imagens/teclados/tecladoRGB.png',
+      fabricante: "ASUS", 
+      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical gaming',
+      preco: 1168.68,
+      urlImagem: 'imagens/teclados/TECLADO_ASUS_ROG.png',
       categorias: 'teclado',
-      descricao: 'Teclado Gamer Profissional Semi Mecânico Iluminação Led Rgb, conexão USB, base resistente teclas super macias e padrão Qwerty. O teclado é gamer perfeito para quem gosta de jogar online, é semi-mecânico e com conexão USB e seu maior diferencial: As luzes RGB de fundo que deixa o teclado mais bonito e melhora a visualização das teclas.'
+      descricao: 'TECLADO ASUS ROG CLAYMORE. RGB SWITCH CHERRY MX RED. O ROG Claymore é o primeiro teclado mecânico RGB para jogos do mundo, com teclado numérico removível que oferece opções de posicionamento enquanto você joga.',
     ),
-    Produto(
-      nome: 'Fone Multi Pop',
-      preco: 189.99,
-      urlImagem: 'imagens/fones/fonePretoMarrom.png',
+
+     Produto(
+      fabricante: "Havit",
+      nome: 'Headset Gamer Havit, Drivers 53mm, Microfone Plugável',
+      preco: 234.99,
+      urlImagem: 'imagens/fones/foneHavitVermelho.png',
       categorias: 'fone',
-      descricao: 'Fone de ouvido multi pop bluetooth preto com detalhe de couro marrom  PH246. Compatível com	Smartphones, tablets e outros dispositivos. Haste acolchoada e ajustável proporcionando conforto estendido garantindo ergonomia no uso. Earpads extra macios para melhor conforto e melhor acústica.'
+      descricao: 'Headset Gamer Havit H2002D Aparência e textura proporcionais, simples e generosas. Jaqueta de liga leve com frente e superfície de plástico com revestimento de piano. Design Gamer em preto, para combinar com seu setup e além de ter qualidade surpreendente por um preço baixo. Head set Gamer Havit com excelente custo benefício. Desempenho e Compatibilidade com PC, PS4 e XBOX Faixa de cabeça ajustável suspensa única, design ergonômico, confortável de usar, antiviolência e não fácil de danificar. À prova de desgaste, resistente a arranhões e atualizado e adequado para pessoas diferentes, o peso de toda a máquina é moderado, desgastando por muito tempo sem pressão. Microfone plugável de 3,5 mm compatível para PC, PS4 e XBOX e Alto-falante magnético de 53 mm de alta qualidade de som para distinguir o som dos jogos e a frequência fracionária alta e baixa meticulosa ao ouvir música.'
     ),
+
+  Produto(
+      fabricante: "Redragon",
+      nome: 'Mouse Gamer Redragon Impact RGB, 12400dpi - M908',
+      preco: 230.45,
+      urlImagem: 'imagens/mouse/Mouse_Gamer_Redragon_Impact.png',
+      categorias: 'mouse',
+      descricao: 'Mouse Gamer Redragon Impact M908 - Poderoso sensor pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC), retroiluminação LED RGB ajustável. Polling rate de 1000hz (Tempo de resposta ajustável via software de 1/2/4/8ms), 12 botões programáveis, compatível com software para configuração de macro/ajuste iluminação RGB/configurações de performance. Memória interna para armazenamento de configurações. Micro-interruptores com durabilidade de até 10 milhões de cliques, ajuste de peso para uma experiência única personalizada.',
+    ),
+
     Produto(
-      nome: 'Monitor Odyssey G7 27',
-      preco: 229.99,
-      urlImagem: 'imagens/monitor/monitorGalaxia.png',
+      fabricante: "Lenovo",
+      nome: 'Monitor LED HD 23.8" FreeSync Lenovo VGA+HDMI',
+      preco: 999,
+      urlImagem: 'imagens/monitor/Monitor_Lenovo.png',
       categorias: 'monitor',
-      descricao: 'O Monitor Odyssey G7 de 27" é um display premium projetado para entusiastas de jogos e usuários exigentes. Com uma tela curva de alta resolução e taxa de atualização ultrarrápida, oferece uma experiência imersiva e suave para jogos e entretenimento. Possui tecnologia QLED para cores vibrantes e realistas, juntamente com suporte a HDR para maior profundidade de contraste.',
+      descricao: 'Com tecnologia inovadora e design elegante, o monitor Lenovo ThinkVision S24e-03 oferece a melhor exibição aos profissionais. Seja para trabalho ou lazer, sua certificação TV Low Blue Light e suporte full function (ajustável) traz mais conforto aos seus olhos, além de uma experiência diferenciada e muito mais produtiva. Sua resolução full HD de 1920 x 1080 VA aliada ao tamanho da tela de 23,8 e bordas finas, oferece uma visão mais clara e ampla das imagens. Enquanto o ângulo de visão de 178 / 178 garante uma melhor experiência sem distorção de cor.Conforto visual, a certificação TV Low Blue Light garante que os usuários não tenham nenhuma fadiga ocular ao trabalhar por muitas horas em frente ao monitor. Aliado a isso, a tecnologia FreeSync, minimiza o desfoque ao movimento e evita o corte da tela. Conectividade ampla,as portas VGA e HDMI oferecem total versatilidade conectando-se a outros dispositivos periféricos. ',
     ),
+
     Produto(
-      nome: 'Mouse G203',
+      fabricante: "Fallen",
+      nome: 'Headset Gamer Fallen Eco, RGB, Drivers 50mm, USB, Preto',
+      preco: 294.99,
+      urlImagem: 'imagens/fones/HEADSET_HAVIT.png',
+      categorias: 'fone',
+      descricao: 'Headset Gamer Fallen, 7.1 Surround, PC, Xbox One/Series X e PS5. A inspiração no jogo é o que nos motiva e o reconhecimento vem quando a nossa comunidade de fãs brasileiros participam dando o nome do nosso primeiro Headset! O Headset Morcego, vem com alto-falantes de alta qualidade e Surround Virtual 7.1, proporcionando uma experiência única ao jogador. É a imersão ao jogo em um novo patamar. Construído em alumínio industrial, garante durabilidade e leveza. As almofadas do Headset Morcego são removíveis e produzidas em material sintético oferecendo conforto ao jogador, mantendo o som de alta qualidade e sem cansar. O design ergonômico foi projetado para exercer a menor pressão possível ao jogador, tornando mais agradável o uso contínuo do equipamento. Outro grande diferencial é um par de almofadas extras, inclusas de fábrica, para substituição caso queira. O Microfone é removível, possui tecnologia de redução de ruído, colaborando para uma comunicação mais precisa e sem interferência. Desenvolvido para uso em campeonatos, em lan houses ou mesmo em casa, tenha a certeza que você conseguirá passar todas as instruções para a sua equipe de forma rápida e sem ruídos.',
+    ),
+    
+    Produto(
+      fabricante: "T-Dagger", 
+      nome: 'Mouse gamer com fio T-DAGGER LIEUTENANT ',
+      preco: 92.37,
+      urlImagem: 'imagens/mouse/MOUSE_GAMER_COM_FIO.png',
+      categorias: 'mouse',
+      descricao: 'O Mouse Gamer T-Dagger Second Lieutenant combina um design exclusivo com configurações personalizáveis, velocidade, precisão e estilo inigualáveis, com uma iluminação customizável RGB com efeito de onda arco-íris, trazendo um estilo único ao seu setup. O sensor de 8000 dpi, oferece uma excelente acuracidade ao jogador.',
+    ),
+
+     Produto(
+      fabricante: "Benq", 
+      nome: 'Monitor gamer Benq Zowie 24,5 POL. LED FULL HD',
+      preco: 2800.00,
+      urlImagem: 'imagens/monitor/Monitor_Benq2.png',
+      categorias: 'monitor',
+      descricao: 'Uma nova geração da série XL de monitores gamers para PC, com ajustes aprimorados para maior flexibilidade, conforto e conveniência aos jogadores, permitindo foco e desempenho durante o game. Base Reduzida Mais Espaço para Jogar. Nova base desenvolvida com o objetivo de liberar mais espaço ao jogador, sem perder a estabilidade do monitor. Isso permite espaço para mais movimento durante o jogo e ficar confortável com mais flexibilidade. Ajustes Flexíveis Mais Conforto Durante os Jogos. Entendemos que cada jogador(a) tem suas configurações preferidas. Uma combinação única da altura e do ângulo do monitor. Com ajuste de altura e inclinação livre, os players podem configurar rapidamente de acordo com suas necessidades para um resultado melhor, jogando de uma forma mais confortável. Configurações Compartilhadas do XL-K,compartilhe suas configurações com seu time, seus amigos ou fãs.',
+    ),
+    
+     Produto(
+      fabricante: "Redragon",
+      nome: 'Mouse Gamer Redragon Impact M908',
       preco: 149.99,
-      urlImagem: 'imagens/mouse/mouseRoxo.png',
+      urlImagem: 'imagens/mouse/Mouse_Gamer_Redragon.png',
       categorias: 'mouse',
-      descricao: 'O G203 LIGHTSYNC vem pronto para jogar com um sensor de 8.000 DPI e cores RGB LIGHTSYNC personalizáveis. A iluminação RGB LIGHTSYNC pode ser personalizada com efeitos ou padrões de ondas de cores em aproximadamente 16,8 milhões de cores para se adequar ao seu estilo, configuração e humor. O sensor de nível avançado para jogos responde com precisão aos seus movimentos.',
+      descricao: 'Redragon IMPACT (M908) Especificações: - Poderoso Sensor Pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC) - Retroiluminação LED RGB Ajustável. - Polling Rate de 1000hz (Tempo de Resposta Ajustável via Software de 1/2/4/8ms) - Botão para Troca de DPI "On-The-Fly". - 18 Botões Programáveis.',
     ),
+    
     Produto(
-      nome: 'Teclado Gamer Action',
-      preco: 49.99,
-      urlImagem: 'imagens/teclados/tecladoAzul.png',
+      fabricante: "TteSPORTS",
+      nome: 'Thermaltake - Poseidon ZX Illuminated Blue',
+      preco: 199.00,
+      urlImagem: 'imagens/teclados/Teclado_Thermaltake.png',
       categorias: 'teclado',
-      descricao: 'Desenvolvido para otimizar seu desempenho, o teclado game TC200 tem teclas destacadas para uma fácil localização durante os jogos. Padrão ABNT2 e conexão USB. TECLADO ACTION: Padrão ABNT2 / Teclas destacadas para uma fácil localização durante os jogos / Conexão USB / Multimídia / 16 teclas de atalho / Teclas macias e silenciosas',
-    ),
-    Produto(
-      nome: 'Headset Hylas Rosa',
-      preco: 189.99,
-      urlImagem: 'imagens/fones/foneRosa.png',
-      categorias: 'fone',
-      descricao: 'Um dos maiores destaques do modelo é sua iluminação RGB, que conta com 4 modos de operação, podendo também ser desligada. Moderno O Redragon Hylas RGB Bubblegum possui corpo fosco e arco de cabeça revestido com courino, entregando um visual sóbrio e de extremo bom gosto. Conforto Leve e equipado com almofadas ultra macias e acolchoamento no arco de cabeça.',
-    ),
-    Produto(
-      nome: 'GalaxyView Jedi Edition',
-      preco: 599.99,
-      urlImagem: 'imagens/monitor/monitorStarWars.png',
-      categorias: 'monitor',
-      descricao: 'O Monitor Star Wars é um tributo épico à icônica saga cinematográfica. Com designs temáticos que apresentam elementos marcantes da série, esse monitor cativa os fãs com sua estética única. Além de sua aparência impressionante, oferece qualidade visual excepcional, com resolução nítida e cores envolventes.',
-    ),
-    Produto(
-      nome: 'Mouse Razer Deathadder',
-      preco: 49.99,
-      urlImagem: 'imagens/mouse/mouseVerde.png',
-      categorias: 'mouse',
-      descricao: 'Desde a sua concepção, o Razer DeathAdder continua a oferecer o gameplay mais confortável de todos os tempos. O design com curvas e contornos foi perfeitamente projeto para encaixar na sua mão e o acabamento em preto matte previne acumulação de suor e garante melhor pegada.',
-    ),
-    Produto(
-      nome: 'Teclado Multilaser',
-      preco: 69.99,
-      urlImagem: 'imagens/teclados/tecladoVerde.png',
-      categorias: 'teclado',
-      descricao: 'Teclado Multilaser Slim com Fio USB Teclas Silenciosas Preto - TC213, Multilaser, Teclados, Windows ou Mac OS, Preto, PLUG & PLAY Conexão automática, conecte a entrada USB e comece a usar. Teclas super macias e silenciosas para seu conforto. Compatibilidade Windows ou Mac OS.',
+      descricao: 'O POSIDON ZX Illuminated - Blue Switch Edition - é um teclado mecânico econômico no formato tenkeyless. Perfeito para um jogador usar em casa ou lan onde o espaço é mais limitado. O POSIDON ZX possui interruptores mecânicos certificados TteSPORTS, classificados para 50 milhões de pressionamentos de teclas, com a primeira garantia de 5 anos do mundo para teclados mecânicos para jogos.',
     )
   ];
 }
