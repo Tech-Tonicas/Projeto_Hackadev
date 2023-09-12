@@ -96,7 +96,7 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
               child: Row(
                 children: [
                   Text(
-                    'Categoria',
+                    'Categoria:',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 50), // Espaço horizontal entre os textos
@@ -113,7 +113,7 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
               child: Row(
                 children: [
                   Text(
-                    'Cor',
+                    'Cor:',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(width: 95), // Espaço horizontal entre os textos
