@@ -20,7 +20,7 @@ class ProdutosData {
       fabricante: "Fallen",
       nome: 'Headset Gamer Fallen Pantera Eco, Drivers 50mm, Preto',
       preco: 199.90,
-      urlImagem: 'imagens/fones/Fone1.png',
+      urlImagem: 'imagens/fones/FoneFallenPreto.png',
       categorias: 'fone',
       descricao: 'Headset Gamer Fallen Pantera Eco. O Conforto Que Você Precisa. Earpads em courino, que oferecem maior conforto e uma espuma de memória para potencializar a performance do som. Sistema de Som Preciso. Drivers de 50mm, que proporcionam maior precisão do áudio, diminuindo distorções e mantendo a estabilidade durante os jogos.',
     ),
@@ -107,11 +107,11 @@ class ProdutosData {
 
     Produto(
       fabricante: "Lenovo",
-      nome: 'Monitor LED HD 23.8" FreeSync Lenovo VGA+HDMI',
-      preco: 999,
+      nome: 'Monitor Lenovo Gamer G25-10 24,5 pol.',
+      preco: 1232.99,
       urlImagem: 'imagens/monitor/Monitor_Lenovo.png',
       categorias: 'monitor',
-      descricao: 'Com tecnologia inovadora e design elegante, o monitor Lenovo ThinkVision S24e-03 oferece a melhor exibição aos profissionais. Seja para trabalho ou lazer, sua certificação TV Low Blue Light e suporte full function (ajustável) traz mais conforto aos seus olhos, além de uma experiência diferenciada e muito mais produtiva. Sua resolução full HD de 1920 x 1080 VA aliada ao tamanho da tela de 23,8 e bordas finas, oferece uma visão mais clara e ampla das imagens. Enquanto o ângulo de visão de 178 / 178 garante uma melhor experiência sem distorção de cor.Conforto visual, a certificação TV Low Blue Light garante que os usuários não tenham nenhuma fadiga ocular ao trabalhar por muitas horas em frente ao monitor. Aliado a isso, a tecnologia FreeSync, minimiza o desfoque ao movimento e evita o corte da tela. Conectividade ampla,as portas VGA e HDMI oferecem total versatilidade conectando-se a outros dispositivos periféricos. ',
+      descricao: 'Levando os jogos a um novo patamar, o Monitor Lenovo G25-10 vem equipado com tudo o que você precisa. O monitor de jogos de 24,5 pol. está pronto para E-sports. Resolução de 1.980 x 1.080, tempo de resposta extremamente rápido de 1 ms e taxa de atualização impressionante de 144 Hz garantem a execução suave da maioria dos jogos. A tensão e a tremulação da tela são reduzidas graças à tecnologia de AMD FreeSync™ que otimiza a experiência de jogos. O conforto permanece uma prioridade com a certificação TÜV Eye Comfort, enquanto a inclinação e a base elevada permitem uma implantação flexível. ',
     ),
 
     Produto(
@@ -134,20 +134,20 @@ class ProdutosData {
 
      Produto(
       fabricante: "Benq", 
-      nome: 'Monitor gamer Benq Zowie 24,5 POL. LED FULL HD',
+      nome: 'Monitor gamer Benq ZOWIE XL2546K Grafite Fosco',
       preco: 2800.00,
-      urlImagem: 'imagens/monitor/Monitor_Benq2.png',
+      urlImagem: 'imagens/monitor/Monitor_Benq.png',
       categorias: 'monitor',
       descricao: 'Uma nova geração da série XL de monitores gamers para PC, com ajustes aprimorados para maior flexibilidade, conforto e conveniência aos jogadores, permitindo foco e desempenho durante o game. Base Reduzida Mais Espaço para Jogar. Nova base desenvolvida com o objetivo de liberar mais espaço ao jogador, sem perder a estabilidade do monitor. Isso permite espaço para mais movimento durante o jogo e ficar confortável com mais flexibilidade. Ajustes Flexíveis Mais Conforto Durante os Jogos. Entendemos que cada jogador(a) tem suas configurações preferidas. Uma combinação única da altura e do ângulo do monitor. Com ajuste de altura e inclinação livre, os players podem configurar rapidamente de acordo com suas necessidades para um resultado melhor, jogando de uma forma mais confortável. Configurações Compartilhadas do XL-K,compartilhe suas configurações com seu time, seus amigos ou fãs.',
     ),
     
      Produto(
       fabricante: "Redragon",
-      nome: 'Mouse Gamer Redragon Impact M908',
+      nome: 'Mouse Gamer Redragon Impact M913',
       preco: 149.99,
       urlImagem: 'imagens/mouse/Mouse_Gamer_Redragon.png',
       categorias: 'mouse',
-      descricao: 'Redragon IMPACT (M908) Especificações: - Poderoso Sensor Pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC) - Retroiluminação LED RGB Ajustável. - Polling Rate de 1000hz (Tempo de Resposta Ajustável via Software de 1/2/4/8ms) - Botão para Troca de DPI "On-The-Fly". - 18 Botões Programáveis.',
+      descricao: 'Redragon IMPACT (M913) Especificações: - Poderoso Sensor Pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC) - Retroiluminação LED RGB Ajustável. - Polling Rate de 1000hz (Tempo de Resposta Ajustável via Software de 1/2/4/8ms) - Botão para Troca de DPI "On-The-Fly". - 18 Botões Programáveis.',
     ),
     
     Produto(
