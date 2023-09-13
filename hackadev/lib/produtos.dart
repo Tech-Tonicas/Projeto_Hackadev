@@ -223,7 +223,7 @@ class ProdutosData {
     Produto(
       id: 12,
       fabricante: 'TteSPORTS',
-      nome: 'Thermaltake - Poseidon ZX Illuminated Blue',
+      nome: 'Thermaltake, Poseidon ZX Illuminated, Blue Switch',
       resumo: 'Thermaltake - Poseidon ZX',
       preco: 199.00,
       urlImagem: 'imagens/teclados/Teclado_Thermaltake.png',
@@ -274,7 +274,7 @@ class ProdutosData {
     Produto(
       id: 15,
       fabricante: 'Redragon',
-      nome: 'Mouse Gamer Redragon Impact M913 RGB',
+      nome: 'Mouse Gamer Redragon Impact (M913) LED RGB, Preto',
       resumo: 'Mouse Gamer Redragon Impact',
       preco: 149.99,
       urlImagem: 'imagens/mouse/Mouse_Gamer_Redragon.png',
@@ -285,7 +285,7 @@ class ProdutosData {
       categorias: 'Mouse',
       cor: 'Preto',
       descricao:
-          'Redragon IMPACT (M908) Especificações: - Poderoso Sensor Pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC) - Retroiluminação LED RGB Ajustável. - Polling Rate de 1000hz (Tempo de Resposta Ajustável via Software de 1/2/4/8ms) - Botão para Troca de DPI "On-The-Fly". - 18 Botões Programáveis.',
+          'Redragon IMPACT (M913) Especificações: - Poderoso Sensor Pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC) - Retroiluminação LED RGB Ajustável. - Polling Rate de 1000hz (Tempo de Resposta Ajustável via Software de 1/2/4/8ms) - Botão para Troca de DPI "On-The-Fly". - 18 Botões Programáveis.',
       avaliacao: 88,
     ),
     Produto(
