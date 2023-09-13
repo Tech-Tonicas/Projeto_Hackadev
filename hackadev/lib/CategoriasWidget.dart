@@ -1,13 +1,16 @@
+
 import 'package:flutter/material.dart';
 import 'package:hackadev/TelaProdutosCategorias.dart';
 import 'produtos.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CategoriasWidget extends StatelessWidget {
   const CategoriasWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Container(height: 50,padding: EdgeInsetsDirectional.all(10), 
+      child:Row(   //linha contendo os botões
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         GestureDetector(
@@ -15,14 +18,13 @@ class CategoriasWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => TelaProdutosCategoria(categoria: 'mouse'),
+                builder: (context) => TelaProdutosCategoria(categoria: 'Mouse'), //Rota que puxa a categoria mouse
               ),
             );
           },
           child: Column(
             children: [
-              Icon(
-                Icons.mouse,size: 25,color: Color(0xFF52E636),            
+              Text("Mouse", style: GoogleFonts.openSans(color: Color(0xFF52E636),fontSize: 16) // botão de texto da categoria mouse 
               ),
             ],
           ),
@@ -33,14 +35,13 @@ class CategoriasWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) =>
-                    TelaProdutosCategoria(categoria: 'monitor'),
+                    TelaProdutosCategoria(categoria: 'Monitor'),  //Rota que puxa a categoria Monitor
               ),
             );
           },
           child: Column(
             children: [
-              Icon(
-                Icons.monitor_sharp,size: 25,color: Color(0xFF52E636),
+              Text("Monitor", style: GoogleFonts.openSans(color: Color(0xFF52E636), fontSize:16 ) // botão de texto da categoria Monitor
               ),
             ],
           ),
@@ -51,14 +52,13 @@ class CategoriasWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) =>
-                    TelaProdutosCategoria(categoria: 'teclado'),
+                    TelaProdutosCategoria(categoria: 'Teclado'), //Rota que puxa a categoria Teclado
               ),
             );
           },
           child: Column(
             children: [
-              Icon(
-                Icons.keyboard_alt_outlined,size: 25,color: Color(0xFF52E636),
+              Text("Teclado", style: GoogleFonts.openSans(color: Color(0xFF52E636),fontSize: 16) // botão de texto da categoria Teclado
               ),
             ],
           ),
@@ -68,19 +68,22 @@ class CategoriasWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => TelaProdutosCategoria(categoria: 'fone'),
+                builder: (context) => TelaProdutosCategoria(categoria: 'Fone'), //Rota que puxa a categoria Fone
               ),
             );
           },
           child: Column(
             children: [
-              Icon(
-                Icons.headphones_outlined,size: 25,color: Color(0xFF52E636),
+              Text("Fone", style: GoogleFonts.openSans(color: Color(0xFF52E636),fontSize: 16) // botão de texto da categoria Fone
               ),
             ],
           ),
         ),
       ],
-    );
+    ) ,);
   }
 }
+
+
+
+
