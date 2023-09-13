@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/TelaProdutosCategorias.dart';
-import 'produtos.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'carrinho.dart';
 
