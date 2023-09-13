@@ -80,9 +80,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
                 padding: const EdgeInsets.all(8),
                 child: Icon(
                   iconsBottom[index],
-                  color: index == 2
-                      ? Color.fromARGB(255, 230, 66, 66)
-                      : unselectedIconColor,
+                  color: index == 2 ? Color(0xFF52E636) : unselectedIconColor,
                 ),
               ),
             ),

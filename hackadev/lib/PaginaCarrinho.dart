@@ -179,6 +179,9 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                 ),
               );
             },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFF52E636), // Cor de fundo desejada
+            ),
             child: Text('Finalizar Compra'),
           ),
         ],
