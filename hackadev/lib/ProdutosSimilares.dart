@@ -2,22 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'produtos.dart';
 import 'detalhesProdutos.dart';
+import 'carrinho.dart';
 
 class ProdutosSimilares extends StatelessWidget {
   final String categoriaAtual;
   final Produto produtoAtual;
+  final Carrinho carrinho; // Adicione o parâmetro carrinho
 
   const ProdutosSimilares({
     Key? key,
     required this.categoriaAtual,
     required this.produtoAtual,
+    required this.carrinho, // Adicione o parâmetro carrinho
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     List<Produto> produtosSimilares = ProdutosData.produtos
         .where((produto) =>
-            produto.categorias == categoriaAtual && produto.id != produtoAtual.id)
+            produto.categorias == categoriaAtual &&
+            produto.id != produtoAtual.id)
         .toList();
 
     return Column(
@@ -40,8 +44,11 @@ class ProdutosSimilares extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            TelaDetalhesProduto(produto: produtosSimilares[j]),
+                        builder: (context) => TelaDetalhesProduto(
+                          produto: produtosSimilares[j],
+                          carrinho:
+                              carrinho, // Passe o carrinho para TelaDetalhesProduto
+                        ),
                       ),
                     );
                   },
@@ -64,9 +71,9 @@ class ProdutosSimilares extends StatelessWidget {
                         ),
                         const SizedBox(height: 2),
                         Container(
-                          width: 160, // Define a largura
+                          width: 160,
                           child: Padding(
-                            padding: EdgeInsets.all(8.0), // Adicione um espaçamento aqui
+                            padding: EdgeInsets.all(8.0),
                             child: Text(
                               produtosSimilares[j].nome,
                               style: TextStyle(
@@ -86,7 +93,8 @@ class ProdutosSimilares extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   RatingBar.builder(
-                                    initialRating: produtosSimilares[j].avaliacao,
+                                    initialRating:
+                                        produtosSimilares[j].avaliacao,
                                     minRating: 1,
                                     direction: Axis.horizontal,
                                     allowHalfRating: true,

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'produtos.dart';
-import 'ProdutosSimilares.dart'; 
-import 'CarrosselDeProdutos.dart';
+import './produtos.dart';
+import 'PaginaCarrinho.dart';
+import 'carrinho.dart';
+import 'ProdutosSimilares.dart';
 
 class TelaDetalhesProduto extends StatefulWidget {
   final Produto produto;
+  final Carrinho carrinho;
 
-  const TelaDetalhesProduto({Key? key, required this.produto}) : super(key: key);
+  TelaDetalhesProduto({Key? key, required this.produto, required this.carrinho})
+      : super(key: key);
 
   @override
   _TelaDetalhesProdutoState createState() => _TelaDetalhesProdutoState();
@@ -21,18 +24,20 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.produto.resumo),
+        title: Text(widget.produto.nome),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: ProductImageCarousel(
-                imageUrls: [
+              child: Container(
+                width: 200,
+                height: 200,
+                child: Image.asset(
                   widget.produto.urlImagem,
-                  ...widget.produto.imageUrls,
-                ],
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             SizedBox(height: 16),
@@ -87,7 +92,11 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 '${widget.produto.formattedPreco}',
-                style: TextStyle(fontSize: 18, color: isButtonPressed ? Color(0xFF52E636) : Color(0xFF52E636)),
+                style: TextStyle(
+                    fontSize: 18,
+                    color: isButtonPressed
+                        ? Color(0xFF52E636)
+                        : Color(0xFF52E636)),
               ),
             ),
             SizedBox(height: 16),
@@ -151,9 +160,10 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       setState(() {
                         isButtonPressed = !isButtonPressed;
                       });
-                      
+
                       if (isButtonPressed) {
                         // Produto adicionado ao carrinho
+                        widget.carrinho.adicionarProduto(widget.produto);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Produto adicionado ao carrinho.'),
@@ -184,12 +194,18 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.add, color: isButtonPressed ? Colors.white : Colors.green),
+                          Icon(Icons.add,
+                              color: isButtonPressed
+                                  ? Colors.white
+                                  : Colors.green),
                           SizedBox(width: 8),
                           Text(
-                            isButtonPressed ? 'Remover do carrinho' : 'Adicionar ao carrinho',
+                            isButtonPressed
+                                ? 'Remover do carrinho'
+                                : 'Adicionar ao carrinho',
                             style: TextStyle(
-                              color: isButtonPressed ? Colors.white : Colors.green,
+                              color:
+                                  isButtonPressed ? Colors.white : Colors.green,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -230,14 +246,17 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         border: Border.all(
-                          color: Color.fromARGB(255, 71, 67, 67), // Cor da borda
+                          color:
+                              Color.fromARGB(255, 71, 67, 67), // Cor da borda
                           width: 0.5, // Espessura da borda
                         ),
                       ),
                       child: Center(
                         child: Icon(
                           isFavorited ? Icons.favorite : Icons.favorite_border,
-                          color: isFavorited ? Colors.red : const Color.fromARGB(199, 158, 158, 158),
+                          color: isFavorited
+                              ? Colors.red
+                              : const Color.fromARGB(199, 158, 158, 158),
                           size: 20,
                         ),
                       ),
@@ -251,6 +270,7 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
             ProdutosSimilares(
               categoriaAtual: widget.produto.categorias,
               produtoAtual: widget.produto,
+              carrinho: widget.carrinho,
             ),
           ],
         ),

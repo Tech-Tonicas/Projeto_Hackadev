@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import './produtos.dart';
 import './detalhesProdutos.dart';
+import 'carrinho.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class TelaListaProdutos extends StatefulWidget {
-  const TelaListaProdutos();
+  final Carrinho carrinho; // Adicione o parâmetro carrinho
+
+  const TelaListaProdutos({Key? key, required this.carrinho}) : super(key: key);
+
   @override
   State<TelaListaProdutos> createState() => _TelaListaProdutosState();
 }
@@ -12,7 +16,7 @@ class TelaListaProdutos extends StatefulWidget {
 class _TelaListaProdutosState extends State<TelaListaProdutos> {
   List<Produto> produtos = ProdutosData.produtos;
 
-  // Utiliza a lista de produtos
+  // Utilize a lista de produtos
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -29,8 +33,11 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  TelaDetalhesProduto(produto: produtos[j]),
+                              builder: (context) => TelaDetalhesProduto(
+                                produto: produtos[j],
+                                carrinho: widget
+                                    .carrinho, // Passe o carrinho para a tela de detalhes
+                              ),
                             ),
                           );
                         },
@@ -39,7 +46,7 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                             children: [
                               Image.asset(
                                 produtos[j].urlImagem,
-                                height: 100,
+                                height: 200,
                                 fit: BoxFit.contain,
                               ),
                               const SizedBox(height: 4),
@@ -52,10 +59,12 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                               ),
                               const SizedBox(height: 2),
                               Padding(
-                                padding: const EdgeInsets.all(8.0), // Adiciona um padding
+                                padding: const EdgeInsets.all(
+                                    8.0), // Adiciona um padding
                                 child: Text(
                                   produtos[j].nome,
-                                  textAlign: TextAlign.center, // Centraliza o texto
+                                  textAlign:
+                                      TextAlign.center, // Centraliza o texto
                                   style: TextStyle(
                                     fontSize: 14,
                                   ),
@@ -69,7 +78,8 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         RatingBar.builder(
                                           initialRating: 4,
