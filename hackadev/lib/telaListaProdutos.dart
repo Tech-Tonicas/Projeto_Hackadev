@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import './produtos.dart';
 import './detalhesProdutos.dart';
 
 class TelaListaProdutos extends StatefulWidget {
-  const TelaListaProdutos({super.key});
+  const TelaListaProdutos();
   @override
   State<TelaListaProdutos> createState() => _TelaListaProdutosState();
 }
@@ -11,7 +12,7 @@ class TelaListaProdutos extends StatefulWidget {
 class _TelaListaProdutosState extends State<TelaListaProdutos> {
   List<Produto> produtos = ProdutosData.produtos;
 
-  // Utilize a lista de produtos
+  // Utiliza a lista de produtos
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -38,28 +39,78 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                             children: [
                               Image.asset(
                                 produtos[j].urlImagem,
-                                height: 150,
+                                height: 100,
                                 fit: BoxFit.contain,
                               ),
                               const SizedBox(height: 4),
                               Text(
                                 produtos[j].fabricante,
-                              ),
-                               Text(
-                                produtos[j].nome,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
                               ),
                               const SizedBox(height: 2),
                               Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                              child: Text(
-                                produtos[j].formattedPreco,
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF52E636),
+                                padding: const EdgeInsets.all(8.0), // Adiciona um padding
+                                child: Text(
+                                  produtos[j].nome,
+                                  textAlign: TextAlign.center, // Centraliza o texto
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
                                 ),
                               ),
-                            ),
+                              const SizedBox(height: 2),
+                              SizedBox(width: 8),
+                              Align(
+                                alignment: Alignment.center,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        RatingBar.builder(
+                                          initialRating: 4,
+                                          minRating: 1,
+                                          direction: Axis.horizontal,
+                                          allowHalfRating: true,
+                                          itemCount: 5,
+                                          itemSize: 15,
+                                          itemBuilder: (context, _) => Icon(
+                                            Icons.star,
+                                            color: Color(0xFFFF9017),
+                                          ),
+                                          onRatingUpdate: (rating) {
+                                            print(rating);
+                                          },
+                                        ),
+                                        SizedBox(width: 8),
+                                        Text(
+                                          produtos[j].avaliacao.toString(),
+                                          style: TextStyle(
+                                            fontSize: 11,
+                                            color: Color(0xFFFF9017),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 8),
+                                child: Text(
+                                  produtos[j].formattedPreco,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF52E636),
+                                  ),
+                                ),
+                              ),
                               const SizedBox(height: 16),
                             ],
                           ),
