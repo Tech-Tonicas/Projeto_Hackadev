@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           toolbarHeight: 100, // Definindo a altura do appbar
-          backgroundColor: Color.fromARGB(255, 0, 0, 0), // Defina a cor de fundo desejada
+          // backgroundColor: Color.fromARGB(255, 0, 0, 0), // Defina a cor de fundo desejada
           elevation: 5,
-          title:const Text("Digital Wave", style: TextStyle(fontFamily: 'Grafiti', fontSize: 22,color:Color.fromARGB(255, 121, 214, 124))), // Adicionando o nome, fonte, tamanho e cor
+          title:const Text("Digital Wave", style: TextStyle(fontFamily: 'Grafiti', fontSize: 22,color:Color.fromARGB(255,82,230,54))), // Adicionando o nome, fonte, tamanho e cor
           actions: [
              Padding(
     padding: const EdgeInsets.only(right: 16.0), // Adicione espaço à direita
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         decoration: InputDecoration(
           hintText: "Pesquisar", // texto de pesquisa
           filled: true,
-          fillColor: Color.fromARGB(255, 0, 0, 0), // Cor de fundo da caixa de pesquisa
+          // fillColor: Color.fromARGB(255, 0, 0, 0), // Cor de fundo da caixa de pesquisa
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide(color: Colors.white), // Cor da borda branca,
