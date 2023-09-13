@@ -1,4 +1,7 @@
-<img style="margin-left:15px;" height="350px" width="350px" alt="Logo Tech-Tonicas" src="https://raw.githubusercontent.com/Tech-Tonicas/Projeto_Hackadev/main/hackadev/assets/logo/teste1.jpeg">
+<p align="center">
+<img height="350px" width="350px" alt="Logo Tech-Tonicas" src="https://raw.githubusercontent.com/Tech-Tonicas/Projeto_Hackadev/main/hackadev/assets/logo/logo-removebg-preview.png">
+</p>
+
 ## Digital Wave - Hackadev
 Esse projeto foi desenvolvido através do curso da Imã.
 
@@ -12,6 +15,11 @@ Criar um aplicativo ecommerce de produtos eletrônicos utilizando a linguagem Da
 *	Funcionalidade 1: Listagem geral dos produtos;
 *	Funcionalidade 2: Listagem por categorias;
 *	Funcionalidade 3: Menu de navegação.
+*	Funcionalidade 4: Criação de telas: <br>
+-Descrição de produtos <br>
+-Valor (pagamento, parcelamento, etc) <br>
+-Avaliação de clientes <br>
+-Produtos relacionados <br>
 
 ## 🛠️ Ferramentas utilizadas
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
