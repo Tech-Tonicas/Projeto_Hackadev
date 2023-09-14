@@ -42,7 +42,6 @@ class ProdutosData {
       imageUrls: [
         'imagens/fones/FoneFallenPreto1.png',
         'imagens/fones/FoneFallenPreto2.png',
-        'imagens/fones/FoneFallenPreto3.png',
       ],
       categorias: 'Fone',
       cor: 'Preto',
@@ -53,7 +52,7 @@ class ProdutosData {
     Produto(
       id: 2,
       fabricante: 'Samsung',
-      nome: 'Monitor Gamer Curvo, tela ultrawide, HDMI - Odyssey G5, Preto',
+      nome: 'Monitor Gamer Curvo, tela ultrawide, HDMI - Odyssey G7',
       resumo: 'Monitor Gamer Curvo Samsung',
       preco: 3299.99,
       urlImagem: 'imagens/monitor/Monitorsamsung.png',
@@ -64,13 +63,13 @@ class ProdutosData {
       categorias: 'Monitor',
       cor: 'Preto',
       descricao:
-          'Monitor Gamer Samsung Odyssey G5 34 VA, Curvo, Wide, 165 Hz, 2K QHD, 1ms, FreeSync Premium, HDR10, HDMI/DisplayPort. Cenas vívidas que te envolvem, abrangente tela com 1000R preenche toda a sua visão periférica e te coloca no lugar do personagem. Viva uma experiência inédita de tirar o fôlego. Gráficos que ultrapassam os limites, resolução Ultra-WQHD proporciona uma visão vasta e abrangente do mundo dos seus jogos com detalhes verdadeiramente realistas. O amplo tamanho da tela elimina a distração de bordas no meio e cabos bagunçados de um setup com dois monitores. Pronto para conquistar os inimigos, sem atrasos e sem oscilações. Taxa de Atualização de 165 Hz. Desempenho ultrarrapido. O AMD FreesSync Premium apresenta uma tecnologia de sincronização adaptável que reduz o travamento de tela, oscilação e atrasos. Gráficos inspiradores com HDR10. Um caleidoscópio de tonalidades dá vida às cenas dos seus jogos de forma mais vibrante do que nunca. Revele os segredos que se escondem nas sombras com pretos profundamente escuros, brancos luminosos e uma resolução incrivelmente detalhada.',
+          'Monitor Gamer Curvo Samsung Odyssey 27" WQHD, 240Hz, 1ms, HDMI, Display Port, USB, compatível com G-sync, Freesync Premium Pro, com ajuste de altura, preto, série G7. Tela com 1000R preenche toda a sua visão periférica e te coloca no lugar do personagem. Viva uma experiência inédita de tirar o fôlego. Gráficos que ultrapassam os limites, resolução Ultra-WQHD proporciona uma visão vasta e abrangente do mundo dos seus jogos com detalhes verdadeiramente realistas.',
       avaliacao: 100,
     ),
     Produto(
       id: 3,
       fabricante: 'MSI',
-      nome: 'Mouse Gamer MSI preto INTERCEPTOR DS B1 1600DPI Preto',
+      nome: 'Mouse gamer MSI preto INTERCEPTOR DS B1 1600DPI Preto',
       resumo: 'Mouse gamer MSI preto',
       preco: 99.90,
       urlImagem: 'imagens/mouse/MOUSE_GAMER_MSI.png',
@@ -115,7 +114,7 @@ class ProdutosData {
       categorias: 'Fone',
       cor: 'Preto',
       descricao:
-          'JBL QUANTUM ONE. Transforme seu jogo em uma experiência épica. O fone de ouvido com fio JBL Quantum ONE oferece áudio de nível profissional com o rastreamento de cabeça aprimorado JBL QuantumSPHERE 360, som surround espacial e cancelamento de ruído ativo ajustado para jogos. Projetado para posicionamento de áudio preciso, o JBL QuantumSOUND Signature proporciona uma curva de som envolvente por meio dos drivers de 50 mm certificados Hi-Res alta definição. O microfone removível com foco na voz permite interações claras entre os jogadores, com supressão de ruídos, recursos de silenciamento e um seletor de equilíbrio de áudio entre jogo e bate-papo certificado pelo DISCORD. O design leve e ergonômico mantém você confortável enquanto o JBL QuantumENGINE traz opções de customização e perfis de usuário. O fone de ouvido JBL Quantum ONE apresenta o que há de mais moderno em áudio, a fim de proporcionar a mais profunda sensação de realismo. Obtenha vantagem profissional com o rastreamento de cabeça aprimorado JBL QuantumSPHERE 360. O JBL QuantumSPHERE 360*, com tecnologia JBL QuantumENGINE, proporciona a você um nível profissional de posicionamento de áudio 3D em seu PC. A calibragem personalizada do algoritmo da JBL, com o sensor de movimento e o microfone, é feita exclusivamente para o JBL Quantum ONE, proporcionando aos jogadores de PC um posicionamento de áudio preciso e de última geração, além de um ambiente sonoro fixo e independente que melhora seus instintos naturais. O JBL Quantum ONE é equipado com o áudio DTS-X 2.0. *Disponível apenas em PC com conexão USB via JBL QuantumENGINE.',
+          'O fone de ouvido com fio JBL Quantum ONE oferece áudio preciso de nível profissional com o rastreamento de cabeça aprimorado JBL QuantumSPHERE 360, som surround espacial e cancelamento de ruído ativo ajustado para jogos. O JBL QuantumSOUND Signature proporciona uma curva de som envolvente por meio dos drivers de 50 mm certificados Hi-Res alta definição. O microfone removível com foco na voz permite interações claras entre os jogadores, com supressão de ruídos, recursos de silenciamento e um seletor de equilíbrio de áudio entre jogo e bate-papo certificado pelo DISCORD.',
       avaliacao: 20,
     ),
     Produto(
@@ -149,13 +148,13 @@ class ProdutosData {
       categorias: 'Mouse',
       cor: 'Preto',
       descricao:
-          'Mouse Gamer Redragon Impact M908 - Poderoso sensor pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC), retroiluminação LED RGB ajustável. Polling rate de 1000hz (Tempo de resposta ajustável via software de 1/2/4/8ms), 12 botões programáveis, compatível com software para configuração de macro/ajuste iluminação RGB/configurações de performance. Memória interna para armazenamento de configurações. Micro-interruptores com durabilidade de até 10 milhões de cliques, ajuste de peso para uma experiência única personalizada.',
+          'Mouse Gamer Redragon Impact M908 - Poderoso sensor pixart PMW 3327 de 12400 DPI com 5 modos de DPI (500/1000/2000/3000/6200 DPI) (30G ACC), retroiluminação LED RGB ajustável. Polling rate de 1000hz, 12 botões programáveis, compatível com software para configuração de macro/ajuste iluminação RGB/configurações de performance. Memória interna para armazenamento de configurações. Micro-interruptores com durabilidade de até 10 milhões de cliques, ajuste de peso para uma experiência única personalizada.',
       avaliacao: 20,
     ),
     Produto(
       id: 8,
       fabricante: 'ASUS',
-      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical - RGB',
+      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical',
       resumo: 'Teclado ASUS ROG claymore',
       preco: 1168.68,
       urlImagem: 'imagens/teclados/TECLADO_ASUS_ROG.png',
@@ -183,7 +182,7 @@ class ProdutosData {
       categorias: 'Fone',
       cor: 'Preto',
       descricao:
-          'Headset Gamer Havit H2002D Aparência e textura proporcionais, simples e generosas. Jaqueta de liga leve com frente e superfície de plástico com revestimento de piano. Design Gamer em preto, para combinar com seu setup e além de ter qualidade surpreendente por um preço baixo. Head set Gamer Havit com excelente custo benefício. Desempenho e Compatibilidade com PC, PS4 e XBOX Faixa de cabeça ajustável suspensa única, design ergonômico, confortável de usar, antiviolência e não fácil de danificar. À prova de desgaste, resistente a arranhões e atualizado e adequado para pessoas diferentes, o peso de toda a máquina é moderado, desgastando por muito tempo sem pressão. Microfone plugável de 3,5 mm compatível para PC, PS4 e XBOX e Alto-falante magnético de 53 mm de alta qualidade de som para distinguir o som dos jogos e a frequência fracionária alta e baixa meticulosa ao ouvir música.',
+          'Headset Gamer Havit H2002D jaqueta de liga leve com frente e superfície de plástico com revestimento de piano. Desempenho e Compatibilidade com PC, PS4 e XBOX Faixa de cabeça ajustável suspensa única, design ergonômico e confortável de usar. À prova de desgaste, resistente a arranhões e atualizado, o peso de toda a máquina é moderado, desgastando por muito tempo sem pressão. Microfone plugável de 3,5 mm compatível para PC, PS4 e XBOX e Alto-falante magnético de 53 mm de alta qualidade de som para distinguir o som dos jogos e a frequência fracionária alta e baixa meticulosa ao ouvir música.',
       avaliacao: 570,
     ),
     Produto(
@@ -206,8 +205,8 @@ class ProdutosData {
     Produto(
       id: 11,
       fabricante: 'T-Dagger',
-      nome: 'Mouse Gamer com fio T-DAGGER LIEUTENANT RGB',
-      resumo: 'Mouse Gamer T-DAGGER',
+      nome: 'Mouse gamer com fio T-DAGGER LIEUTENANT RGB',
+      resumo: 'Mouse gamer T-DAGGER',
       preco: 92.37,
       urlImagem: 'imagens/mouse/MOUSE_GAMER_COM_FIO.png',
       imageUrls: [
@@ -251,16 +250,16 @@ class ProdutosData {
       categorias: 'Fone',
       cor: 'Vermelho',
       descricao:
-          'Headset Gamer, 7.1 Surround, PC, Xbox One/Series X e PS5. A inspiração no jogo é o que nos motiva e o reconhecimento vem quando a nossa comunidade de fãs brasileiros participam dando o nome do nosso primeiro Headset! O Headset Morcego, vem com alto-falantes de alta qualidade e Surround Virtual 7.1, proporcionando uma experiência única ao jogador. É a imersão ao jogo em um novo patamar. Construído em alumínio industrial, garante durabilidade e leveza. As almofadas do Headset Morcego são removíveis e produzidas em material sintético oferecendo conforto ao jogador, mantendo o som de alta qualidade e sem cansar. O design ergonômico foi projetado para exercer a menor pressão possível ao jogador, tornando mais agradável o uso contínuo do equipamento. Outro grande diferencial é um par de almofadas extras, inclusas de fábrica, para substituição caso queira. O Microfone é removível, possui tecnologia de redução de ruído, colaborando para uma comunicação mais precisa e sem interferência. Desenvolvido para uso em campeonatos, em lan houses ou mesmo em casa, tenha a certeza que você conseguirá passar todas as instruções para a sua equipe de forma rápida e sem ruídos.',
+         'Headset Gamer, 7.1 Surround, PC, Xbox One/Series X e PS5. Vem com alto-falantes de alta qualidade e Surround Virtual 7.1, proporcionando uma experiência única ao jogador. Construído em alumínio industrial, garante durabilidade e leveza. Almofadas removíveis e produzidas em material sintético oferecendo conforto ao jogador, mantendo o som de alta qualidade e sem cansar. O design ergonômico foi projetado para exercer a menor pressão possível ao jogador, tornando mais agradável o uso contínuo do equipamento. O Microfone é removível, possui tecnologia de redução de ruído para uma comunicação mais precisa e sem interferência.',
       avaliacao: 80,
     ),
     Produto(
       id: 14,
       fabricante: 'Benq',
-      nome: 'Monitor Gamer Benq Zowie 24,5 POL. LED FULL HD',
-      resumo: 'Monitor Gamer Benq Zowie 24,5',
+      nome: 'Monitor gamer Benq Zowie 24,5 POL. LED FULL HD',
+      resumo: 'Monitor gamer Benq Zowie 24,5',
       preco: 2800.00,
-      urlImagem: 'imagens/monitor/Monitor_Benq0.png',
+      urlImagem: 'imagens/monitor/Monitor_Benq.png',
       imageUrls: [
         'imagens/monitor/Monitor_Benq1.png',
         'imagens/monitor/Monitor_Benq2.png',
@@ -268,7 +267,7 @@ class ProdutosData {
       categorias: 'Monitor',
       cor: 'Preto',
       descricao:
-          'Uma nova geração da série XL de monitores gamers para PC, com ajustes aprimorados para maior flexibilidade, conforto e conveniência aos jogadores, permitindo foco e desempenho durante o game. Base Reduzida Mais Espaço para Jogar. Nova base desenvolvida com o objetivo de liberar mais espaço ao jogador, sem perder a estabilidade do monitor. Isso permite espaço para mais movimento durante o jogo e ficar confortável com mais flexibilidade. Ajustes Flexíveis Mais Conforto Durante os Jogos. Entendemos que cada jogador(a) tem suas configurações preferidas. Uma combinação única da altura e do ângulo do monitor. Com ajuste de altura e inclinação livre, os players podem configurar rapidamente de acordo com suas necessidades para um resultado melhor, jogando de uma forma mais confortável. Configurações Compartilhadas do XL-K,compartilhe suas configurações com seu time, seus amigos ou fãs.',
+          'Uma nova geração da série XL de monitores gamers para PC, com ajustes aprimorados para maior flexibilidade, conforto e conveniência aos jogadores, permitindo foco e desempenho durante o game. Base Reduzida Mais Espaço para Jogar. Nova base desenvolvida com o objetivo de liberar mais espaço ao jogador, sem perder a estabilidade do monitor. Ajustes Flexíveis Mais Conforto Durante os Jogos. Com ajuste de altura e inclinação livre, os players podem configurar rapidamente de acordo com suas necessidades para um resultado melhor, jogando de uma forma mais confortável.',
       avaliacao: 99,
     ),
     Produto(
@@ -291,8 +290,8 @@ class ProdutosData {
     Produto(
       id: 16,
       fabricante: 'Redragon',
-      nome: 'Teclado Mecânico (TVASTAR) RGB ajustavel, com fio, azul',
-      resumo: 'Teclado Mecânico TVASTAR',
+      nome: 'Teclado mecânico TVASTAR RGB azul com fio',
+      resumo: 'Teclado mecânico TVASTAR',
       preco: 415.25,
       urlImagem: 'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',
       imageUrls: [

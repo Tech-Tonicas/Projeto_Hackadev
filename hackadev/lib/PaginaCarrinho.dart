@@ -67,7 +67,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                               fit: BoxFit.cover,
                             ),
                             title: Text(produto.nome),
-                            subtitle: Text(produto.descricao),
+                            //subtitle: Text(produto.descricao),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [

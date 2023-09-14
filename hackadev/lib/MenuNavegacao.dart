@@ -46,7 +46,8 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
         elevation: 5,
       ),
       body: telas[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: SingleChildScrollView(
+        child: BottomNavigationBar(
         currentIndex: _currentIndex,
         selectedItemColor: Theme.of(context).primaryColorLight,
         unselectedItemColor: unselectedIconColor,
@@ -88,6 +89,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
           );
         }).toList(),
       ),
+      )
     );
   }
 }
