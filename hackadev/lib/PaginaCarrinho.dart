@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/carrinho.dart';
-import 'package:hackadev/produtos.dart';
 import 'package:hackadev/main.dart';
+import 'package:hackadev/produtos.dart';
+import 'package:intl/intl.dart'; // Importe a biblioteca intl.dart para formatação de moeda
 
 class PaginaCarrinho extends StatefulWidget {
   final Carrinho carrinho;
@@ -13,61 +14,106 @@ class PaginaCarrinho extends StatefulWidget {
 }
 
 class _PaginaCarrinhoState extends State<PaginaCarrinho> {
-  String formaPagamento =
-      "Boleto"; // Inicialmente, a forma de pagamento é definida como Boleto
+  String formaPagamento = "Boleto";
+
+  // Função para calcular o desconto com base na forma de pagamento
+  double calcularDesconto() {
+    if (formaPagamento == "PIX") {
+      return 0.10; // 10% de desconto para PIX
+    } else if (formaPagamento == "Boleto") {
+      return 0.05; // 5% de desconto para Boleto
+    } else {
+      return 0.0; // Sem desconto para Cartão
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    // Calcular o desconto com base na forma de pagamento selecionada
+    double desconto = calcularDesconto();
+
+    // Calcular o valor total com desconto
+    double valorTotalComDesconto =
+        widget.carrinho.valorTotal - (widget.carrinho.valorTotal * desconto);
+
+    // Formate o valor com desconto para aparecer como "R$"
+    final currencyFormatter = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
+    String valorComDescontoFormatado = currencyFormatter.format(valorTotalComDesconto);
+    String valorTotalFormatado = currencyFormatter.format(widget.carrinho.valorTotal);
+
+    // Estilos de texto para Meus Valores
+    TextStyle meusValoresTextStyle = TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    );
+
+    // Estilos de texto comuns para valores
+    TextStyle valoresTextStyle = TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    );
+
+    // Estilo de texto para a Forma de Pagamento
+    TextStyle formaPagamentoTextStyle = TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Carrinho de Compras'),
       ),
-      body: Column(
-        children: [
-          widget.carrinho.itens.isEmpty
-              ? Container(
-                  padding: EdgeInsets.all(16),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Carrinho Vazio',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        // Adicionado SingleChildScrollView
+        child: Column(
+          children: [
+            widget.carrinho.itens.isEmpty
+                ? Container(
+                    padding: EdgeInsets.all(16),
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Carrinho Vazio',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                )
-              : Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  )
+                : Container(
+                    // Removido o Expanded do ListView.builder
+                    height: 300, // Defina uma altura máxima aqui
                     child: ListView.builder(
+                      shrinkWrap: true, // Definir shrinkWrap como true
                       itemCount: widget.carrinho.itens.length,
                       itemBuilder: (context, index) {
                         Produto produto =
                             widget.carrinho.itens.keys.elementAt(index);
                         int quantidade =
                             widget.carrinho.itens.values.elementAt(index);
-                        return Container(
+                        return Card(
                           margin: EdgeInsets.symmetric(
                             vertical: 8.0,
-                            horizontal: 16.0,
-                          ),
-                          padding: EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                            horizontal: 12.0,
                           ),
                           child: ListTile(
                             leading: Image.asset(
                               produto.urlImagem,
-                              width: 50,
-                              height: 50,
+                              width: 35,
+                              height: 35,
                               fit: BoxFit.cover,
                             ),
-                            title: Text(produto.nome),
-                            subtitle: Text(produto.descricao),
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${produto.nome}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -76,7 +122,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                                     widget.carrinho.removerProduto(produto);
                                     setState(() {});
                                   },
-                                  icon: Icon(Icons.remove),
+                                  icon: Icon(Icons.delete),
                                 ),
                                 Text('$quantidade'),
                                 IconButton(
@@ -93,98 +139,160 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                       },
                     ),
                   ),
-                ),
-          Container(
-            padding: EdgeInsets.all(16),
-            margin: EdgeInsets.all(16), // Margem ao redor do sumário
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey,
-                width: 1.0,
+            Container(
+              // Remova a altura fixa aqui
+              child: Row(
+                // Usando Row para alinhar a forma de pagamento e o resumo
+                mainAxisAlignment: MainAxisAlignment
+                    .spaceBetween, // Alinhar à esquerda e à direita
+                children: [
+                  Expanded(
+                    child: Container(
+                      // Novo Container com o texto "Meus Valores"
+                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: Text(
+                              'Meus Valores', // Texto adicionado
+                              style: meusValoresTextStyle, // Aplicando o estilo
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Forma de Pagamento Selecionada: $formaPagamento',
+                            style: valoresTextStyle,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Quantidade de Produtos: ${widget.carrinho.quantidadeTotal}',
+                            style: valoresTextStyle,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Valor Total: $valorTotalFormatado',
+                            style: valoresTextStyle,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Desconto: ${(desconto * 100).toStringAsFixed(2)}%',
+                            style: valoresTextStyle,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Valor com Desconto: $valorComDescontoFormatado',
+                            style: valoresTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      width: double.infinity, // Largura máxima
+                      margin: EdgeInsets.all(16),
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Forma de Pagamento',
+                            style: formaPagamentoTextStyle,
+                          ),
+                          RadioListTile(
+                            title: Text(
+                              'Boleto',
+                              style: formaPagamento == 'Boleto'
+                                  ? TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                  : null,
+                            ),
+                            value: "Boleto",
+                            groupValue: formaPagamento,
+                            onChanged: (value) {
+                              setState(() {
+                                formaPagamento = value.toString();
+                              });
+                            },
+                          ),
+                          RadioListTile(
+                            title: Text(
+                              'Cartão',
+                              style: formaPagamento == 'Cartão'
+                                  ? TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                  : null,
+                            ),
+                            value: "Cartão",
+                            groupValue: formaPagamento,
+                            onChanged: (value) {
+                              setState(() {
+                                formaPagamento = value.toString();
+                              });
+                            },
+                          ),
+                          RadioListTile(
+                            title: Text(
+                              'PIX',
+                              style: formaPagamento == 'PIX'
+                                  ? TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                  : null,
+                            ),
+                            value: "PIX",
+                            groupValue: formaPagamento,
+                            onChanged: (value) {
+                              setState(() {
+                                formaPagamento = value.toString();
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              borderRadius: BorderRadius.circular(8.0),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Quantidade de Produtos: ${widget.carrinho.quantidadeTotal}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'Valor Total: ${widget.carrinho.valorTotalFormatado}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(16), // Margem ao redor do novo sumário
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey,
-                width: 1.0,
+            ElevatedButton(
+              onPressed: () {
+                // Regra para finalizar a compra
+                widget.carrinho.limparCarrinho(); // Limpa o carrinho
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyApp(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFF52E636),
               ),
-              borderRadius: BorderRadius.circular(8.0),
+              child: Text('Finalizar Compra'),
             ),
-            child: Column(
-              children: [
-                Text(
-                  'Forma de Pagamento:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                RadioListTile(
-                  title: Text('Boleto'),
-                  value: "Boleto",
-                  groupValue: formaPagamento,
-                  onChanged: (value) {
-                    setState(() {
-                      formaPagamento = value.toString();
-                    });
-                  },
-                ),
-                RadioListTile(
-                  title: Text('Cartão'),
-                  value: "Cartão",
-                  groupValue: formaPagamento,
-                  onChanged: (value) {
-                    setState(() {
-                      formaPagamento = value.toString();
-                    });
-                  },
-                ),
-                RadioListTile(
-                  title: Text('PIX'),
-                  value: "PIX",
-                  groupValue: formaPagamento,
-                  onChanged: (value) {
-                    setState(() {
-                      formaPagamento = value.toString();
-                    });
-                  },
-                ),
-              ],
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              // Lógica para finalizar a compra
-              widget.carrinho.limparCarrinho(); // Limpa o carrinho
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      MyApp(), // Substitui pela tela inicial (MyApp)
-                ),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              primary: Color(0xFF52E636), // Cor de fundo desejada
-            ),
-            child: Text('Finalizar Compra'),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -30,6 +30,7 @@ class Produto {
     return 'R\$ ${precoString.replaceAll('.', ',')}';
   }
 }
+
 class ProdutosData {
   static final List<Produto> produtos = [
     Produto(
