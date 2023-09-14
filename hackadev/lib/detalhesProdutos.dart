@@ -23,7 +23,7 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.produto.nome),
+        title: Text(widget.produto.resumo),
       ),
       body: SingleChildScrollView(
         child: Column(
