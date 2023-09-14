@@ -53,7 +53,7 @@ class ProdutosData {
     Produto(
       id: 2,
       fabricante: 'Samsung',
-      nome: 'Monitor Gamer Curvo, tela ultrawide, HDMI - Odyssey G5',
+      nome: 'Monitor Gamer Curvo, tela ultrawide, HDMI - Odyssey G5, Preto',
       resumo: 'Monitor Gamer Curvo Samsung',
       preco: 3299.99,
       urlImagem: 'imagens/monitor/Monitorsamsung.png',
@@ -70,7 +70,7 @@ class ProdutosData {
     Produto(
       id: 3,
       fabricante: 'MSI',
-      nome: 'Mouse gamer MSI preto INTERCEPTOR DS B1 1600DPI Preto',
+      nome: 'Mouse Gamer MSI preto INTERCEPTOR DS B1 1600DPI Preto',
       resumo: 'Mouse gamer MSI preto',
       preco: 99.90,
       urlImagem: 'imagens/mouse/MOUSE_GAMER_MSI.png',
@@ -155,7 +155,7 @@ class ProdutosData {
     Produto(
       id: 8,
       fabricante: 'ASUS',
-      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical',
+      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical - RGB',
       resumo: 'Teclado ASUS ROG claymore',
       preco: 1168.68,
       urlImagem: 'imagens/teclados/TECLADO_ASUS_ROG.png',
@@ -206,8 +206,8 @@ class ProdutosData {
     Produto(
       id: 11,
       fabricante: 'T-Dagger',
-      nome: 'Mouse gamer com fio T-DAGGER LIEUTENANT RGB',
-      resumo: 'Mouse gamer T-DAGGER',
+      nome: 'Mouse Gamer com fio T-DAGGER LIEUTENANT RGB',
+      resumo: 'Mouse Gamer T-DAGGER',
       preco: 92.37,
       urlImagem: 'imagens/mouse/MOUSE_GAMER_COM_FIO.png',
       imageUrls: [
@@ -257,8 +257,8 @@ class ProdutosData {
     Produto(
       id: 14,
       fabricante: 'Benq',
-      nome: 'Monitor gamer Benq Zowie 24,5 POL. LED FULL HD',
-      resumo: 'Monitor gamer Benq Zowie 24,5',
+      nome: 'Monitor Gamer Benq Zowie 24,5 POL. LED FULL HD',
+      resumo: 'Monitor Gamer Benq Zowie 24,5',
       preco: 2800.00,
       urlImagem: 'imagens/monitor/Monitor_Benq0.png',
       imageUrls: [
@@ -291,8 +291,8 @@ class ProdutosData {
     Produto(
       id: 16,
       fabricante: 'Redragon',
-      nome: 'Teclado mecânico TVASTAR RGB azul com fio',
-      resumo: 'Teclado mecânico TVASTAR',
+      nome: 'Teclado Mecânico (TVASTAR) RGB ajustavel, com fio, azul',
+      resumo: 'Teclado Mecânico TVASTAR',
       preco: 415.25,
       urlImagem: 'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',
       imageUrls: [
