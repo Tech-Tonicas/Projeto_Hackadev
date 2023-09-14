@@ -14,8 +14,7 @@ class _CarrosselState extends State <Carrossel>{
     return 
  CarouselSlider(
  // options: CarouselOptions(height: 400.0), //
-  items: [Image.asset('imagens/carrossel/promoFone.jpeg'),
-          Image.asset('imagens/carrossel/promoMonitor.jpeg'),
+  items: [Image.asset('imagens/carrossel/promoMonitor.jpeg'),
           Image.asset('imagens/carrossel/promoMouse.jpeg'),
           Image.asset('imagens/carrossel/promoTeclado.jpeg'),
           Image.asset('imagens/carrossel/promoTecladoAzul.jpeg')
