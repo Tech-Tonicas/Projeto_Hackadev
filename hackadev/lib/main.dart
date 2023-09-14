@@ -35,9 +35,12 @@ class MyApp extends StatelessWidget {
               padding: const EdgeInsets.only(
                   right: 16.0), // Adicione espaço à direita
               child: Container(
-                width: 200, // Define a largura para a caixa de pesquisa
+                width: 150, // Define a largura para a caixa de pesquisa
                 alignment: Alignment
                     .center, // Alinha a pesquisa ao centro verticalmente
+
+                child: const SizedBox(
+        height: 40, // Ajuste a altura desejada da barra de pesquisa  
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: "Pesquisar", // texto de pesquisa
@@ -48,22 +51,15 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              color: Colors.black26,
-              image: DecorationImage(
-              image: AssetImage('logo/logo-removebg-preview.png'),
-                fit: BoxFit.cover,
-              ),
             ),
-          ),
+          ],
+          
         ),
         body: Column(
           children: [
             CategoriasWidget(
                 carrinho: carrinho), // Usando o widget de categorias
-            Carrossel(),
+            const Carrossel(),
             TelaListaProdutos(
                 carrinho: carrinho), // Passe o carrinho para TelaListaProdutos
             SizedBox(
