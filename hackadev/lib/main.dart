@@ -3,6 +3,7 @@ import 'package:hackadev/CategoriasWidget.dart';
 import 'package:hackadev/telaListaProdutos.dart';
 import 'MenuNavegacao.dart';
 import 'package:hackadev/carrinho.dart';
+import 'carrossel.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.black26,
               image: DecorationImage(
-                image: AssetImage('logo/logo-removebg-preview.png'),
+              image: AssetImage('logo/logo-removebg-preview.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
           children: [
             CategoriasWidget(
                 carrinho: carrinho), // Usando o widget de categorias
+            Carrossel(),
             TelaListaProdutos(
                 carrinho: carrinho), // Passe o carrinho para TelaListaProdutos
             SizedBox(
