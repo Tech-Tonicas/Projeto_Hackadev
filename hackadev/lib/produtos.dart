@@ -30,7 +30,6 @@ class Produto {
     return 'R\$ ${precoString.replaceAll('.', ',')}';
   }
 }
-
 class ProdutosData {
   static final List<Produto> produtos = [
     Produto(
@@ -53,7 +52,7 @@ class ProdutosData {
     Produto(
       id: 2,
       fabricante: 'Samsung',
-      nome: 'Monitor Gamer Curvo, tela ultrawide, HDMI - Odyssey G7',
+      nome: 'Monitor Gamer Samsung Curvo, tela ultrawide, HDMI Odyssey G7',
       resumo: 'Monitor Gamer Curvo Samsung',
       preco: 3299.99,
       urlImagem: 'imagens/monitor/Monitorsamsung.png',
@@ -121,7 +120,7 @@ class ProdutosData {
     Produto(
       id: 6,
       fabricante: 'Apple',
-      nome: 'IMac ME086BZ Apple Intel Core i5 Quad Core - 8GB 1TB LED 21,5"',
+      nome: 'IMac ME086BZ Apple Intel Core i5 Quad Core - 8GB 1TB 21,5" + HDMI',
       resumo: 'IMac ME086BZ Apple i5',
       preco: 5685.00,
       urlImagem: 'imagens/monitor/iMac_ME086BZ_Apple.png',
@@ -155,7 +154,7 @@ class ProdutosData {
     Produto(
       id: 8,
       fabricante: 'ASUS',
-      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical',
+      nome: 'Teclado ASUS ROG claymore cherry MX red Mechanical RGB',
       resumo: 'Teclado ASUS ROG claymore',
       preco: 1168.68,
       urlImagem: 'imagens/teclados/TECLADO_ASUS_ROG.png',
@@ -172,7 +171,7 @@ class ProdutosData {
     Produto(
       id: 9,
       fabricante: 'Havit',
-      nome: 'Headset Gamer Havit, Drivers 53mm, Microfone Plugável',
+      nome: 'Headset Gamer Havit RGB, Drivers 53mm, Microfone Plugável',
       resumo: 'Headset Gamer Havit',
       preco: 234.99,
       urlImagem: 'imagens/fones/HEADSET_HAVIT.png',
@@ -189,7 +188,7 @@ class ProdutosData {
     Produto(
       id: 10,
       fabricante: 'Lenovo',
-      nome: 'Monitor LED HD 23.8" FreeSync Lenovo VGA+HDMI',
+      nome: 'Monitor Gamer tela LED HD 23.8" - FreeSync Lenovo VGA + HDMI',
       resumo: 'Monitor LED HD 23.8"',
       preco: 999.00,
       urlImagem: 'imagens/monitor/Monitor_Lenovo.png',
@@ -206,7 +205,7 @@ class ProdutosData {
     Produto(
       id: 11,
       fabricante: 'T-Dagger',
-      nome: 'Mouse gamer com fio T-DAGGER LIEUTENANT RGB',
+      nome: 'Mouse gamer com fio T-DAGGER LIEUTENANT LED RGB',
       resumo: 'Mouse gamer T-DAGGER',
       preco: 92.37,
       urlImagem: 'imagens/mouse/MOUSE_GAMER_COM_FIO.png',
@@ -223,7 +222,7 @@ class ProdutosData {
     Produto(
       id: 12,
       fabricante: 'TteSPORTS',
-      nome: 'Thermaltake, Poseidon ZX Illuminated, Blue Switch',
+      nome: 'Thermaltake, Poseidon ZX Illuminated, Blue Switch, com fio',
       resumo: 'Thermaltake - Poseidon ZX',
       preco: 199.00,
       urlImagem: 'imagens/teclados/Teclado_Thermaltake.png',
@@ -240,7 +239,7 @@ class ProdutosData {
     Produto(
       id: 13,
       fabricante: 'Havit',
-      nome: 'Headset Gamer Havit, RGB, Drivers 50mm, USB, Preto',
+      nome: 'Headset Gamer Havit Vermelho, Drivers 50mm, USB com fio',
       resumo: 'Headset Gamer Havit',
       preco: 294.99,
       urlImagem: 'imagens/fones/foneHavitVermelho.png',
@@ -257,7 +256,7 @@ class ProdutosData {
     Produto(
       id: 14,
       fabricante: 'Benq',
-      nome: 'Monitor gamer Benq Zowie 24,5 POL. LED FULL HD',
+      nome: 'Monitor Gamer BenQ Zowie de 24,5 polegadas, com tela LED FULL HD',
       resumo: 'Monitor gamer Benq Zowie 24,5',
       preco: 2800.00,
       urlImagem: 'imagens/monitor/Monitor_Benq.png',
@@ -291,7 +290,7 @@ class ProdutosData {
     Produto(
       id: 16,
       fabricante: 'Redragon',
-      nome: 'Teclado mecânico TVASTAR RGB azul com fio',
+      nome: 'Teclado mecânico gamer TVASTAR LED RGB, azul com fio',
       resumo: 'Teclado mecânico TVASTAR',
       preco: 415.25,
       urlImagem: 'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',

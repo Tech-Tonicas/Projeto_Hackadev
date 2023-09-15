@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackadev/carrinho.dart';
 import 'package:hackadev/main.dart';
 import 'package:hackadev/produtos.dart';
-import 'package:intl/intl.dart'; // Importe a biblioteca intl.dart para formatação de moeda
+import 'package:intl/intl.dart';
 
 class PaginaCarrinho extends StatefulWidget {
   final Carrinho carrinho;
@@ -36,10 +36,12 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
     double valorTotalComDesconto =
         widget.carrinho.valorTotal - (widget.carrinho.valorTotal * desconto);
 
-    // Formate o valor com desconto para aparecer como "R$"
-    final currencyFormatter = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
-    String valorComDescontoFormatado = currencyFormatter.format(valorTotalComDesconto);
-    String valorTotalFormatado = currencyFormatter.format(widget.carrinho.valorTotal);
+    final currencyFormatter =
+        NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
+    String valorComDescontoFormatado =
+        currencyFormatter.format(valorTotalComDesconto);
+    String valorTotalFormatado =
+        currencyFormatter.format(widget.carrinho.valorTotal);
 
     // Estilos de texto para Meus Valores
     TextStyle meusValoresTextStyle = TextStyle(
@@ -47,7 +49,6 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
       fontWeight: FontWeight.bold,
     );
 
-    // Estilos de texto comuns para valores
     TextStyle valoresTextStyle = TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.bold,
@@ -80,8 +81,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                     ),
                   )
                 : Container(
-                    // Removido o Expanded do ListView.builder
-                    height: 300, // Defina uma altura máxima aqui
+                    height: 300,
                     child: ListView.builder(
                       shrinkWrap: true, // Definir shrinkWrap como true
                       itemCount: widget.carrinho.itens.length,
@@ -140,15 +140,13 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                     ),
                   ),
             Container(
-              // Remova a altura fixa aqui
               child: Row(
-                // Usando Row para alinhar a forma de pagamento e o resumo
-                mainAxisAlignment: MainAxisAlignment
-                    .spaceBetween, // Alinhar à esquerda e à direita
+                // Usando Row para a forma de pagamento
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: Container(
-                      // Novo Container com o texto "Meus Valores"
+                      // Container "Meus Valores"
                       padding: EdgeInsets.all(16),
                       margin: EdgeInsets.all(16),
                       decoration: BoxDecoration(
@@ -163,8 +161,8 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                         children: [
                           Center(
                             child: Text(
-                              'Meus Valores', // Texto adicionado
-                              style: meusValoresTextStyle, // Aplicando o estilo
+                              'Meus Valores',
+                              style: meusValoresTextStyle,
                             ),
                           ),
                           SizedBox(height: 8),
@@ -198,7 +196,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                   ),
                   Expanded(
                     child: Container(
-                      width: double.infinity, // Largura máxima
+                      width: double.infinity,
                       margin: EdgeInsets.all(16),
                       padding: EdgeInsets.all(16),
                       decoration: BoxDecoration(
