@@ -296,8 +296,8 @@ class ProdutosData {
       preco: 415.25,
       urlImagem: 'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',
       imageUrls: [
-        'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',
-        'imagens/teclados/TECLADO_MECANICO_REDRAGON.png',
+        'imagens/teclados/TECLADO_MECANICO_REDRAGON1.png',
+        'imagens/teclados/TECLADO_MECANICO_REDRAGON2.png',
       ],
       categorias: 'Teclado',
       cor: 'Azul',
