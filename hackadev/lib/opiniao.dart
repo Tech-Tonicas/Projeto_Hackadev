@@ -73,11 +73,11 @@ class _AvaliacoesProdutoState extends State<AvaliacoesProduto> {
           style: ElevatedButton.styleFrom(
             primary: Colors.white,
             onPrimary: Colors.green, 
-             textStyle: TextStyle(
+             textStyle: const TextStyle(
           fontWeight: FontWeight.bold, 
           ),
           ),
-          child: Text('Adicionar Comentário'),
+          child: const Text('Adicionar Comentário'),
         ),
         ],
       ),
