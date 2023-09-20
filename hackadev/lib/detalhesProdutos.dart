@@ -4,6 +4,7 @@ import 'produtos.dart';
 import 'carrinho.dart';
 import 'ProdutosSimilares.dart'; 
 import 'CarrosselDeProdutos.dart';
+import 'opiniao.dart';
 
 class TelaDetalhesProduto extends StatefulWidget {
   final Produto produto;
@@ -143,6 +144,20 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                 textAlign: TextAlign.justify,
               ),
             ),
+            
+            
+            // Botão "Ver Avaliações"
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AvaliacoesProduto(comentarios: widget.produto.comentarios),
+                  ),
+                );
+              },
+              child: Text('Ver Avaliações'),
+            ),
+
             SizedBox(height: 24),
             Center(
               child: Row(
