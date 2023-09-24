@@ -135,3 +135,7 @@ class OutraRota extends StatelessWidget {
     );
   }
 }
+
+void main() {
+  runApp(MyApp());
+}
