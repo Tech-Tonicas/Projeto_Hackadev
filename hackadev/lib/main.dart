@@ -4,6 +4,7 @@ import 'package:hackadev/telaListaProdutos.dart';
 import 'MenuNavegacao.dart';
 import 'package:hackadev/carrinho.dart';
 import 'carrossel.dart';
+import '';
 
 void main() {
   runApp(MyApp());
@@ -40,20 +41,19 @@ class MyApp extends StatelessWidget {
                     .center, // Alinha a pesquisa ao centro verticalmente
 
                 child: const SizedBox(
-        height: 40, // Ajuste a altura desejada da barra de pesquisa  
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Pesquisar", // texto de pesquisa
-                    filled: true,
-                    prefixIcon: Icon(Icons
-                        .search), // Ícone de pesquisa à esquerda da caixa e dentro
+                  height: 40, // Ajuste a altura desejada da barra de pesquisa
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Pesquisar", // texto de pesquisa
+                      filled: true,
+                      prefixIcon: Icon(Icons
+                          .search), // Ícone de pesquisa à esquerda da caixa e dentro
+                    ),
                   ),
                 ),
               ),
             ),
-            ),
           ],
-          
         ),
         body: Column(
           children: [
