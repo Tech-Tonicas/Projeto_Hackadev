@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hackadev/MenuPerfil.dart';
 import 'PaginaCarrinho.dart';
 import 'carrinho.dart';
-import 'MenuPerfil.dart';
+import 'main.dart';
 
 class MenuNavegacao extends StatefulWidget {
   final Carrinho carrinho;
@@ -17,12 +18,17 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
 
   List<Widget> get telas => [
         Pagina('Categorias'),
-        PaginaCarrinho(carrinho: widget.carrinho),
+        PaginaCarrinho(
+          carrinho: widget.carrinho,
+          appBar: true,
+          footer: true,
+        ),
         WishlistScreen(),
         MenuPerfil(),
       ];
 
   final List<String> categories = [
+    'Home',
     'Categorias',
     'Carrinho',
     'Favoritos',
@@ -30,6 +36,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
   ];
 
   final List<IconData> iconsBottom = [
+    Icons.home,
     Icons.menu,
     Icons.add_shopping_cart_outlined,
     Icons.favorite,
@@ -40,51 +47,62 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
   final Color unselectedIconColor = Color(0xFF52E636);
   final Color iconBackgroundColor = const Color.fromARGB(255, 46, 44, 44);
 
+  void _navigateToHome(BuildContext context) {
+    //Definindo regra para passar por todas as rotas até chegar à primeira rota (tela inicial)
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MyApp(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
     // Determinar o número de itens a serem exibidos no BottomNavigationBar com base no tamanho da tela
-    final numberOfItems = screenSize.width < 600 ? 2 : 4;
+    final numberOfItems = screenSize.width < 600 ? 2 : 5;
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 5,
-      ),
+      appBar: _currentIndex == 1 || _currentIndex == 3
+          ? null // Ocultar a AppBar nas páginas desnecessárias
+          : AppBar(
+              elevation: 5,
+            ),
       body: telas[_currentIndex],
       bottomNavigationBar: SingleChildScrollView(
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
           selectedItemColor: Theme.of(context).primaryColorLight,
           unselectedItemColor: unselectedIconColor,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
           items: categories
               .asMap()
               .entries
-              .where((entry) =>
-                  entry.key <
-                  numberOfItems) // Limitar o número de itens exibidos
+              .where((entry) => entry.key < numberOfItems)
               .map((entry) {
             final index = entry.key;
             final title = entry.value;
             return BottomNavigationBarItem(
               icon: GestureDetector(
                 onTap: () {
-                  if (index == 1) {
+                  if (index == 0) {
+                    _navigateToHome(context);
+                  }
+                  if (index == 2) {
                     // Navegar para a rota da PaginaCarrinho quando clicar no ícone do carrinho
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            PaginaCarrinho(carrinho: widget.carrinho),
+                        builder: (context) => PaginaCarrinho(
+                          carrinho: widget.carrinho,
+                          appBar: true,
+                          footer: true,
+                        ),
                       ),
                     );
                   }
-                  if (index == 3) {
+                  if (index == 4) {
                     // Navegar para a tela MenuPerfil quando clicar em "Meu Perfil"
                     Navigator.push(
                       context,

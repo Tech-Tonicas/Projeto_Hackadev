@@ -3,11 +3,19 @@ import 'package:hackadev/carrinho.dart';
 import 'package:hackadev/main.dart';
 import 'package:hackadev/produtos.dart';
 import 'package:intl/intl.dart';
+import 'MenuNavegacao.dart';
 
 class PaginaCarrinho extends StatefulWidget {
   final Carrinho carrinho;
+  final bool appBar;
+  final bool footer;
 
-  PaginaCarrinho({Key? key, required this.carrinho}) : super(key: key);
+  PaginaCarrinho(
+      {Key? key,
+      required this.carrinho,
+      required this.appBar,
+      required this.footer})
+      : super(key: key);
 
   @override
   _PaginaCarrinhoState createState() => _PaginaCarrinhoState();
@@ -30,7 +38,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    // Determine o número de colunas para exibir produtos com base no tamanho da tela
+    // Determina o número de colunas para exibir produtos com base no tamanho da tela
     int columnsCount = screenWidth > 600 ? 2 : 1;
 
     double desconto = calcularDesconto();
@@ -45,9 +53,11 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
         currencyFormatter.format(widget.carrinho.valorTotal);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Carrinho de Compras'),
-      ),
+      appBar: widget.appBar
+          ? CustomAppBar(
+              title: 'Digital Wave',
+            )
+          : null,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -283,6 +293,12 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
           ],
         ),
       ),
+      bottomNavigationBar: widget.footer
+          ? SizedBox(
+              height: 71,
+              child: MenuNavegacao(carrinho: widget.carrinho),
+            )
+          : null,
     );
   }
 }

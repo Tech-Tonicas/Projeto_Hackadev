@@ -1,17 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MenuPerfil(),
-    );
-  }
-}
+import 'package:hackadev/main.dart';
 
 class MenuPerfil extends StatefulWidget {
   @override
@@ -60,7 +48,7 @@ class _MenuPerfilState extends State<MenuPerfil> {
     final screenWidth = mediaQuery.size.width;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Meu Perfil')),
+      appBar: CustomAppBar(title: 'Digital Wave'),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(16.0),
@@ -95,7 +83,6 @@ class _MenuPerfilState extends State<MenuPerfil> {
                   controller: senhaController,
                   decoration: InputDecoration(
                     labelText: 'Senha',
-                    // Defina a cor do texto com base na opção "Lembrar senha"
                     labelStyle: TextStyle(
                       color: lembrarSenha ? Colors.grey : null,
                     ),
@@ -181,7 +168,7 @@ class _MenuPerfilState extends State<MenuPerfil> {
                     SizedBox(width: 20),
                     ElevatedButton.icon(
                       onPressed: () {
-                        // Implemente a ação para login com Facebook
+                        // ISerá no futuro implementada regra para login Facebook
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
