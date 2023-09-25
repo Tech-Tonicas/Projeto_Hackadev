@@ -1,45 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/carrinho.dart';
-import 'package:hackadev/main.dart';
-import 'package:hackadev/produtos.dart';
 import 'package:intl/intl.dart';
+
 import 'MenuNavegacao.dart';
+import 'carrinho.dart';
+import 'main.dart';
+import 'produtos.dart';
 
 class PaginaCarrinho extends StatefulWidget {
   final Carrinho carrinho;
   final bool appBar;
   final bool footer;
 
-  PaginaCarrinho(
-      {Key? key,
-      required this.carrinho,
-      required this.appBar,
-      required this.footer})
-      : super(key: key);
+  PaginaCarrinho({
+    Key? key,
+    required this.carrinho,
+    required this.appBar,
+    required this.footer,
+  }) : super(key: key);
 
   @override
   _PaginaCarrinhoState createState() => _PaginaCarrinhoState();
 }
 
 class _PaginaCarrinhoState extends State<PaginaCarrinho> {
-  String formaPagamento = "Boleto";
+  String formaPagamento = "Boleto"; // Forma de pagamento padrão
+
+  String nomeTitularCartao = "";
+  String numeroCartao = "";
+  String vencimentoCartao = "";
+  int numeroParcelas = 1;
 
   double calcularDesconto() {
     if (formaPagamento == "PIX") {
-      return 0.10;
+      return 0.10; // Desconto de 10% para pagamento via PIX
     } else if (formaPagamento == "Boleto") {
-      return 0.05;
+      return 0.05; // Desconto de 5% para pagamento via Boleto
     } else {
-      return 0.0;
+      return 0.0; // Sem desconto para outras formas de pagamento
     }
   }
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-
-    // Determina o número de colunas para exibir produtos com base no tamanho da tela
-    int columnsCount = screenWidth > 600 ? 2 : 1;
+    bool isDesktop =
+        screenWidth > 600; // Define um ponto de interrupção para desktop
 
     double desconto = calcularDesconto();
     double valorTotalComDesconto =
@@ -73,57 +78,106 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                       ),
                     ),
                   )
-                : GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: columnsCount,
-                    ),
-                    shrinkWrap: true,
-                    itemCount: widget.carrinho.itens.length,
-                    itemBuilder: (context, index) {
-                      Produto produto =
-                          widget.carrinho.itens.keys.elementAt(index);
-                      int quantidade =
-                          widget.carrinho.itens.values.elementAt(index);
-                      return Card(
-                        margin: EdgeInsets.all(8.0),
-                        child: ListTile(
-                          leading: Image.asset(
-                            produto.urlImagem,
-                            width: 35,
-                            height: 35,
-                            fit: BoxFit.cover,
-                          ),
-                          title: Text(
-                            '${produto.nome}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  widget.carrinho.removerProduto(produto);
-                                  setState(() {});
-                                },
-                                icon: Icon(Icons.delete),
-                              ),
-                              Text('$quantidade'),
-                              IconButton(
-                                onPressed: () {
-                                  widget.carrinho.adicionarProduto(produto);
-                                  setState(() {});
-                                },
-                                icon: Icon(Icons.add),
-                              ),
-                            ],
-                          ),
+                : isDesktop
+                    ? GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
                         ),
-                      );
-                    },
-                  ),
+                        shrinkWrap: true,
+                        itemCount: widget.carrinho.itens.length,
+                        itemBuilder: (context, index) {
+                          Produto produto =
+                              widget.carrinho.itens.keys.elementAt(index);
+                          int quantidade =
+                              widget.carrinho.itens.values.elementAt(index);
+                          return Card(
+                            margin: EdgeInsets.all(8.0),
+                            child: ListTile(
+                              leading: Image.asset(
+                                produto.urlImagem,
+                                width: 35,
+                                height: 35,
+                                fit: BoxFit.cover,
+                              ),
+                              title: Text(
+                                '${produto.nome}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      widget.carrinho.removerProduto(produto);
+                                      setState(() {});
+                                    },
+                                    icon: Icon(Icons.delete),
+                                  ),
+                                  Text('$quantidade'),
+                                  IconButton(
+                                    onPressed: () {
+                                      widget.carrinho.adicionarProduto(produto);
+                                      setState(() {});
+                                    },
+                                    icon: Icon(Icons.add),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      )
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: widget.carrinho.itens.length,
+                        itemBuilder: (context, index) {
+                          Produto produto =
+                              widget.carrinho.itens.keys.elementAt(index);
+                          int quantidade =
+                              widget.carrinho.itens.values.elementAt(index);
+                          return Card(
+                            margin: EdgeInsets.all(8.0),
+                            child: ListTile(
+                              leading: Image.asset(
+                                produto.urlImagem,
+                                width: 35,
+                                height: 35,
+                                fit: BoxFit.cover,
+                              ),
+                              title: Text(
+                                '${produto.nome}',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      widget.carrinho.removerProduto(produto);
+                                      setState(() {});
+                                    },
+                                    icon: Icon(Icons.delete),
+                                  ),
+                                  Text('$quantidade'),
+                                  IconButton(
+                                    onPressed: () {
+                                      widget.carrinho.adicionarProduto(produto);
+                                      setState(() {});
+                                    },
+                                    icon: Icon(Icons.add),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -143,7 +197,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                       children: [
                         Center(
                           child: Text(
-                            'Meus Valores',
+                            'SubTotal',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -209,7 +263,7 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                     child: Column(
                       children: [
                         Text(
-                          'Forma de Pagamento',
+                          'Método de Pagamento',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -275,6 +329,75 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
                 ),
               ],
             ),
+
+            // Formulário de pagamento com cartão
+            if (formaPagamento == 'Cartão')
+              Container(
+                padding: EdgeInsets.all(16),
+                margin: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Pagar com Cartão',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          labelText: 'Nome do Titular do Cartão'),
+                      onChanged: (value) {
+                        setState(() {
+                          nomeTitularCartao = value;
+                        });
+                      },
+                    ),
+                    TextFormField(
+                      decoration:
+                          InputDecoration(labelText: 'Número do Cartão'),
+                      onChanged: (value) {
+                        setState(() {
+                          numeroCartao = value;
+                        });
+                      },
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          labelText: 'Vencimento do Cartão (MM/AA)'),
+                      onChanged: (value) {
+                        setState(() {
+                          vencimentoCartao = value;
+                        });
+                      },
+                    ),
+                    DropdownButton<int>(
+                      value: numeroParcelas,
+                      onChanged: (value) {
+                        setState(() {
+                          numeroParcelas = value!;
+                        });
+                      },
+                      items: [1, 2, 3].map((int value) {
+                        return DropdownMenuItem<int>(
+                          value: value,
+                          child: Text('$value Parcela(s)'),
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ),
+              ),
+
             ElevatedButton(
               onPressed: () {
                 widget.carrinho.limparCarrinho();
