@@ -1,3 +1,33 @@
+/*class Produto {
+ int? id;
+ String? nome;
+ String? fabricante;
+ String? resumo;
+ double? preco;
+ String? urlImagem;
+ List<String>? imageUrls;
+ String? categorias;
+ String? cor;
+ String? descricao;
+ double? avaliacao;
+ List<Comentario>? comentarios;
+
+String? get formattedPreco {
+ if (preco != null) {
+ final precoString = preco!. toStringAsFixed(2).replaceAll('.', ',');
+ return 'R\$ $precoString';
+ }
+ return null;
+ }
+}
+
+class Comentario {
+ String? usuario;
+ String? texto;
+}*/
+
+
+//
 class Produto {
   final int id;
   final String nome;
