@@ -93,7 +93,7 @@ class ProdutosData {
       cor: 'Preto',
       descricao:
           'Headset Gamer Fallen Pantera Eco. O Conforto Que Você Precisa. Earpads em courino, que oferecem maior conforto e uma espuma de memória para potencializar a performance do som. Sistema de Som Preciso. Drivers de 50mm, que proporcionam maior precisão do áudio, diminuindo distorções e mantendo a estabilidade durante os jogos.',
-      avaliacao: 122,
+      avaliacao: 123,
       comentarios: [
         Comentario(usuario: 'Renata', texto: 'O som é incrível! Vale muito a pena'),
         Comentario(usuario: 'Jonas', texto: 'Estava a meses procurando. Achei aqui com um ótimo preço. O fone é tem um som sensacional'),
