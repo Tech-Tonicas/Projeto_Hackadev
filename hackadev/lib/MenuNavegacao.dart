@@ -62,7 +62,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
     final screenSize = MediaQuery.of(context).size;
 
     // Determinar o número de itens a serem exibidos no BottomNavigationBar com base no tamanho da tela
-    final numberOfItems = screenSize.width < 600 ? 2 : 5;
+    final numberOfItems = screenSize.width < 600 ? 5 : 5;
 
     return Scaffold(
       appBar: _currentIndex == 1 || _currentIndex == 3

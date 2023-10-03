@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'produtos.dart';
+import 'model/produtos.dart';
 
 class AvaliacoesProduto extends StatefulWidget {
   final List<Comentario> comentarios;

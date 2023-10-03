@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackadev/produtos.dart';
+import 'package:hackadev/model/produtos.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hackadev/detalhesProdutos.dart';
@@ -140,3 +140,4 @@ class TelaProdutosCategoria extends StatelessWidget {
     );
   }
 }
+

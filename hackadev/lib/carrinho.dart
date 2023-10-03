@@ -1,4 +1,4 @@
-import 'package:hackadev/produtos.dart';
+import 'package:hackadev/model/produtos.dart';
 
 class Carrinho {
   final Map<Produto, int> itens = {};
