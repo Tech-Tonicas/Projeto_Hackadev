@@ -34,12 +34,9 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 4.	Execute o aplicativo: flutter run
 
 ## Autoras
-##### Bianca Rodrigues
-##### Caroline Dantas
-##### Emily Ferreira 
-##### Helaine Ribeiro
-##### Gildeane Araújo
-##### Karine Farias
-##### Núbia Santos
-##### Priscila Mendonça
-##### Priscylla Sousa
+* Bianca Rodrigues</a>
+* Emily Ferreira 
+* Helaine Ribeiro
+* Karine Farias
+* Núbia Santos
+* Priscylla Sousa
