@@ -42,6 +42,8 @@ class Produto {
   final String descricao;
   final double avaliacao;
   final List<Comentario> comentarios;
+  bool favorito;
+  bool noCarrinho;
   
 
   Produto({
@@ -57,10 +59,10 @@ class Produto {
     required this.descricao,
     required this.avaliacao,
     required this.comentarios,
+    this.favorito = false,
+    this.noCarrinho = false,
     
   });
-
- 
 
   String get formattedPreco {
     String precoString = preco.toStringAsFixed(2);
