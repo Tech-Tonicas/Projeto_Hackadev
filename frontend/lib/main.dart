@@ -4,6 +4,8 @@ import 'package:hackadev/telaListaProdutos.dart';
 import 'MenuNavegacao.dart';
 import 'package:hackadev/carrinho.dart';
 import 'carrossel.dart';
+import 'Favoritos.dart';
+import 'package:hackadev/telaListaProdutos.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -12,8 +14,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
- 
-
     return AppBar(
       toolbarHeight: 80,
       elevation: 5,
@@ -53,20 +53,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
 class Footer extends StatelessWidget {
   final Carrinho carrinho;
+  final Favoritos favoritos; 
 
-  Footer({required this.carrinho});
+  Footer({required this.carrinho, required this.favoritos});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 71,
-      child: MenuNavegacao(carrinho: carrinho),
+      child: MenuNavegacao(carrinho: carrinho, favoritos: favoritos),
     );
   }
 }
 
 class MyApp extends StatelessWidget {
   final Carrinho carrinho = Carrinho();
+  final Favoritos favoritos = Favoritos();
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +76,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Digital Wave",
       theme: ThemeData.dark(),
-      home: MainLayout(carrinho: carrinho), // Passando carrinho como argumento
+      home: MainLayout(carrinho: carrinho, favoritos: favoritos),
     );
   }
 }
 
 class MainLayout extends StatelessWidget {
   final Carrinho carrinho;
+  final Favoritos favoritos;
 
-  MainLayout({required this.carrinho});
+  MainLayout({required this.carrinho, required this.favoritos});
 
   @override
   Widget build(BuildContext context) {
@@ -91,15 +94,13 @@ class MainLayout extends StatelessWidget {
         title: "Digital Wave",
       ),
       body: Navigator(
-        // Usando um Navigator para exibir as páginas navegáveis
         onGenerateRoute: (settings) {
           if (settings.name == '/') {
             return MaterialPageRoute(
-              builder: (context) => HomeScreen(
-                  carrinho: carrinho), // Passando carrinho como argumento
+              builder: (context) =>
+                  HomeScreen(carrinho: carrinho, favoritos: favoritos),
             );
           } else if (settings.name == '/outra_rota') {
-            // caminho para rotas
             return MaterialPageRoute(
               builder: (context) => OutraRota(),
             );
@@ -107,24 +108,27 @@ class MainLayout extends StatelessWidget {
           return null;
         },
       ),
-      bottomNavigationBar: Footer(carrinho: carrinho),
+      bottomNavigationBar: Footer(carrinho: carrinho, favoritos: favoritos),
     );
   }
 }
 
 class HomeScreen extends StatelessWidget {
   final Carrinho carrinho;
+  final Favoritos favoritos;
 
-  HomeScreen({required this.carrinho});
+  HomeScreen({required this.carrinho, required this.favoritos});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CategoriasWidget(carrinho: carrinho),
-        const Carrossel(),
-        TelaListaProdutos(carrinho: carrinho),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CategoriasWidget(carrinho: carrinho),
+          const Carrossel(),
+          TelaListaProdutos(carrinho: carrinho, favoritos: favoritos),
+        ],
+      ),
     );
   }
 }
