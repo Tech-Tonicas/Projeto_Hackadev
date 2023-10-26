@@ -115,8 +115,8 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       width: 2,
                     ),
                   ),
-                  minimumSize: Size(100, 50), // Ajuste a largura e altura conforme necessário
-                  padding: EdgeInsets.symmetric(horizontal: 16), // Ajuste o espaçamento interno
+                  minimumSize: Size(100, 50),
+                  padding: EdgeInsets.symmetric(horizontal: 16), 
                 ),
                 child: Row(
                   children: [
@@ -168,8 +168,8 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       width: 2,
                     ),
                   ),
-                  minimumSize: Size(100, 50), // Ajuste a largura e altura conforme necessário
-                  padding: EdgeInsets.symmetric(horizontal: 16), // Ajuste o espaçamento interno
+                  minimumSize: Size(100, 50), 
+                  padding: EdgeInsets.symmetric(horizontal: 16), 
                 ),
                 child: Row(
                   children: [
