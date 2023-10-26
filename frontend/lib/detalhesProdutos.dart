@@ -19,6 +19,7 @@ class TelaDetalhesProduto extends StatefulWidget {
 class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
   bool isButtonPressed = false;
   bool isFavorited = false;
+  bool isDescricaoVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -94,70 +95,94 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
               ),
             ),
             SizedBox(height: 16),
+            // Botão "Abrir/Fechar Descrição"
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  Text(
-                    'Categoria:',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isDescricaoVisible = !isDescricaoVisible;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 58, 58, 58),
+                  onPrimary: Colors.white,
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide(
+                      color: Color.fromARGB(112, 71, 71, 71),
+                      width: 2,
+                    ),
                   ),
-                  SizedBox(width: 50), // Espaço horizontal entre os textos
-                  Text(
-                    '${widget.produto.categorias}',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ],
+                  minimumSize: Size(100, 50), // Ajuste a largura e altura conforme necessário
+                  padding: EdgeInsets.symmetric(horizontal: 16), // Ajuste o espaçamento interno
+                ),
+                child: Row(
+                  children: [
+                    Text('Descrição do produto', style: TextStyle(fontSize: 16)),
+                    Icon(
+                      isDescricaoVisible ? Icons.arrow_drop_up : Icons.arrow_drop_down,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  Text(
-                    'Cor:',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(width: 95), // Espaço horizontal entre os textos
-                  Text(
-                    '${widget.produto.cor}',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ],
+            // Exibir a descrição se isDescricaoVisible for verdadeiro
+            if (isDescricaoVisible)
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 16),
+                    Text(
+                      widget.produto.descricao,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Text(
-                'Descrição do Produto',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                widget.produto.descricao,
-                style: TextStyle(fontSize: 16, color: Colors.white),
-                textAlign: TextAlign.justify,
-              ),
-            ),
-            
-            
+            SizedBox(height: 15),
             // Botão "Ver Avaliações"
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => AvaliacoesProduto(comentarios: widget.produto.comentarios),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => AvaliacoesProduto(comentarios: widget.produto.comentarios),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 58, 58, 58),
+                  onPrimary: Colors.white,
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide(
+                      color: Color.fromARGB(112, 71, 71, 71),
+                      width: 2,
+                    ),
                   ),
-                );
-              },
-              child: Text('Ver Avaliações'),
+                  minimumSize: Size(100, 50), // Ajuste a largura e altura conforme necessário
+                  padding: EdgeInsets.symmetric(horizontal: 16), // Ajuste o espaçamento interno
+                ),
+                child: Row(
+                  children: [
+                    Text('Avaliações', style: TextStyle(fontSize: 16)),
+                    SizedBox(width: 8),
+                    Icon(
+                      Icons.arrow_right,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
             ),
-
             SizedBox(height: 24),
             Center(
               child: Row(
@@ -168,9 +193,8 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       setState(() {
                         isButtonPressed = !isButtonPressed;
                       });
-                      
+
                       if (isButtonPressed) {
-                        // Produto adicionado ao carrinho
                         widget.carrinho.adicionarProduto(widget.produto);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -179,7 +203,6 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                           ),
                         );
                       } else {
-                        // Produto removido do carrinho
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Produto removido do carrinho.'),
@@ -216,16 +239,14 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 16), // Espaço entre os botões
+                  SizedBox(width: 16),
                   GestureDetector(
                     onTap: () {
                       setState(() {
                         isFavorited = !isFavorited;
                       });
 
-                      // Verificar se o produto foi adicionado ou removido dos favoritos
                       if (isFavorited) {
-                        // Produto adicionado aos favoritos
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Produto adicionado aos favoritos.'),
@@ -233,7 +254,6 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                           ),
                         );
                       } else {
-                        // Produto removido dos favoritos
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Produto removido dos favoritos.'),
@@ -248,8 +268,8 @@ class _TelaDetalhesProdutoState extends State<TelaDetalhesProduto> {
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                         border: Border.all(
-                          color: Color.fromARGB(255, 71, 67, 67), // Cor da borda
-                          width: 0.5, // Espessura da borda
+                          color: Color.fromARGB(255, 71, 67, 67),
+                          width: 0.5,
                         ),
                       ),
                       child: Center(
