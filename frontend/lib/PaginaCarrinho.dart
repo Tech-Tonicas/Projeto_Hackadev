@@ -5,22 +5,26 @@ import 'MenuNavegacao.dart';
 import 'carrinho.dart';
 import 'main.dart';
 import 'produtos.dart';
+import 'Favoritos.dart';
+import 'TelaFavoritos.dart';
 
 class PaginaCarrinho extends StatefulWidget {
   final Carrinho carrinho;
   final bool appBar;
   final bool footer;
+  final Favoritos favoritos; 
 
   PaginaCarrinho({
-    Key? key,
     required this.carrinho,
-    required this.appBar,
-    required this.footer,
-  }) : super(key: key);
+    required this.favoritos,
+    this.appBar = true,
+    this.footer = true,
+  });
 
   @override
   _PaginaCarrinhoState createState() => _PaginaCarrinhoState();
 }
+
 
 class _PaginaCarrinhoState extends State<PaginaCarrinho> {
   String formaPagamento = "Boleto"; // Forma de pagamento padrão
@@ -419,7 +423,8 @@ class _PaginaCarrinhoState extends State<PaginaCarrinho> {
       bottomNavigationBar: widget.footer
           ? SizedBox(
               height: 71,
-              child: MenuNavegacao(carrinho: widget.carrinho),
+              child: MenuNavegacao(
+                  carrinho: widget.carrinho, favoritos: widget.favoritos),
             )
           : null,
     );
