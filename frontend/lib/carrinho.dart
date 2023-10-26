@@ -1,5 +1,4 @@
 import 'package:hackadev/produtos.dart';
-
 class Carrinho {
   final Map<Produto, int> itens = {};
 
@@ -12,7 +11,7 @@ class Carrinho {
   }
 
   void limparCarrinho() {
-    itens.clear(); // Limpa os itens do carrinho
+    itens.clear();
   }
 
   void removerProduto(Produto produto) {
@@ -43,5 +42,17 @@ class Carrinho {
 
   String get valorTotalFormatado {
     return 'R\$ ${valorTotal.toStringAsFixed(2)}';
+  }
+
+  void toggleProduto(Produto produto) {
+    if (itens.containsKey(produto)) {
+      removerProduto(produto);
+    } else {
+      adicionarProduto(produto);
+    }
+  }
+
+  bool estaNoCarrinho(Produto produto) {
+    return itens.containsKey(produto);
   }
 }
