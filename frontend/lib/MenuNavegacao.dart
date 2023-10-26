@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/MenuPerfil.dart';
+import 'package:hackadev/TelaFavoritos.dart';
 import 'PaginaCarrinho.dart';
 import 'carrinho.dart';
 import 'main.dart';
+import 'produtos.dart';
+import 'TelaFavoritos.dart';
+import 'Favoritos.dart';
 
 class MenuNavegacao extends StatefulWidget {
   final Carrinho carrinho;
+  final Favoritos favoritos;
 
-  const MenuNavegacao({Key? key, required this.carrinho}) : super(key: key);
+  const MenuNavegacao(
+      {Key? key, required this.carrinho, required this.favoritos,})
+      : super(key: key);
 
   @override
   _MenuNavegacaoState createState() => _MenuNavegacaoState();
@@ -20,10 +27,11 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
         Pagina('Categorias'),
         PaginaCarrinho(
           carrinho: widget.carrinho,
+          favoritos: widget.favoritos,
           appBar: true,
           footer: true,
         ),
-        WishlistScreen(),
+        TelaFavoritos(carrinho: widget.carrinho, favoritos: widget.favoritos),
         MenuPerfil(),
       ];
 
@@ -66,68 +74,68 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
 
     return Scaffold(
       appBar: _currentIndex == 1 || _currentIndex == 3
-          ? null // Ocultar a AppBar nas páginas desnecessárias
-          : AppBar(
-              elevation: 5,
-            ),
+          ? null
+          : AppBar(elevation: 5),
       body: telas[_currentIndex],
-      bottomNavigationBar: SingleChildScrollView(
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          selectedItemColor: Theme.of(context).primaryColorLight,
-          unselectedItemColor: unselectedIconColor,
-          items: categories
-              .asMap()
-              .entries
-              .where((entry) => entry.key < numberOfItems)
-              .map((entry) {
-            final index = entry.key;
-            final title = entry.value;
-            return BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () {
-                  if (index == 0) {
-                    _navigateToHome(context);
-                  }
-                  if (index == 2) {
-                    // Navegar para a rota da PaginaCarrinho quando clicar no ícone do carrinho
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PaginaCarrinho(
-                          carrinho: widget.carrinho,
-                          appBar: true,
-                          footer: true,
-                        ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedItemColor: Theme.of(context).primaryColorLight,
+        unselectedItemColor: unselectedIconColor,
+        items: categories
+            .asMap()
+            .entries
+            .where((entry) => entry.key < numberOfItems)
+            .map((entry) {
+          final index = entry.key;
+          final title = entry.value;
+          return BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () {
+                if (index == 0) {
+                  _navigateToHome(context);
+                }
+                if (index == 2) {
+                  // Navegar para a rota da PaginaCarrinho quando clicar no ícone do carrinho
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PaginaCarrinho(
+                        carrinho: widget.carrinho,
+                        favoritos: widget.favoritos,
+                        appBar: true,
+                        footer: true,
                       ),
-                    );
-                  }
-                  if (index == 4) {
-                    // Navegar para a tela MenuPerfil quando clicar em "Meu Perfil"
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MenuPerfil(),
-                      ),
-                    );
-                  }
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: iconBackgroundColor,
-                    borderRadius: BorderRadius.circular(8),
+                    ),
+                  );
+                }
+                if (index == 3) {
+                // Navegar para a tela de favoritos quando clicar no ícone de favoritos
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TelaFavoritos(
+                      carrinho: widget.carrinho,
+                      favoritos: widget.favoritos,
+                    ),
                   ),
-                  padding: const EdgeInsets.all(8),
-                  child: Icon(
-                    iconsBottom[index],
-                    color: index == 2 ? Color(0xFF52E636) : unselectedIconColor,
-                  ),
+                );
+              }
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: iconBackgroundColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Icon(
+                  iconsBottom[index],
+                  color: index == 2 ? Color(0xFF52E636) : unselectedIconColor,
                 ),
               ),
-              label: title,
-            );
-          }).toList(),
-        ),
+            ),
+            label: title,
+          );
+        }).toList(),
       ),
     );
   }
@@ -144,17 +152,6 @@ class Pagina extends StatelessWidget {
       child: Center(
         child: Text(texto),
       ),
-    );
-  }
-}
-
-class WishlistScreen extends StatelessWidget {
-  const WishlistScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Favoritos'),
     );
   }
 }
