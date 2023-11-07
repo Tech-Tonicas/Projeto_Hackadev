@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackadev/MenuPerfil.dart';
+import 'package:hackadev/cadastrarProdutos.dart';
 import 'PaginaCarrinho.dart';
 import 'carrinho.dart';
 import 'main.dart';
@@ -33,6 +34,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
     'Carrinho',
     'Favoritos',
     'Meu Perfil',
+    'Cadastro'
   ];
 
   final List<IconData> iconsBottom = [
@@ -41,6 +43,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
     Icons.add_shopping_cart_outlined,
     Icons.favorite,
     Icons.account_circle,
+    Icons.settings,
   ];
 
   final Color selectedIconColor = Colors.black;
@@ -62,7 +65,7 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
     final screenSize = MediaQuery.of(context).size;
 
     // Determinar o número de itens a serem exibidos no BottomNavigationBar com base no tamanho da tela
-    final numberOfItems = screenSize.width < 600 ? 5 : 5;
+    final numberOfItems = screenSize.width < 600 ? 6 : 6;
 
     return Scaffold(
       appBar: _currentIndex == 1 || _currentIndex == 3
@@ -111,6 +114,18 @@ class _MenuNavegacaoState extends State<MenuNavegacao> {
                       ),
                     );
                   }
+                  if (index == 5) {
+                    // Navegar para a rota de cadastro de produtos quando clicar em "Cadastrar Produtos"
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CadastrarProdutos(),
+                      ),
+                    );
+                  }
+                  setState(() {
+                    _currentIndex = index;
+                  });
                 },
                 child: Container(
                   decoration: BoxDecoration(

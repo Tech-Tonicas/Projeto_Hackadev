@@ -76,7 +76,7 @@ class Comentario {
   required this.texto});
 }
 
-class ProdutosData {
+ class ProdutosData {
   static final List<Produto> produtos = [
     Produto(
       id: 1,
@@ -430,5 +430,5 @@ class ProdutosData {
         Comentario(usuario: 'Bruna', texto: 'Eu amei'),
       ],
     )
-  ];
+  ]; 
 }
