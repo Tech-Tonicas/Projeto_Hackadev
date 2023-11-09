@@ -30,3 +30,5 @@ Route::put('/products/{id}', [ProductsController::class, 'update']);//alterar pr
 
 //upload das imagens
 Route::post('/products/urlImagem', [Productscontroller::class, 'uploadUrlImagem']);// uploadProfile é o metodo ,vc coloca o nome que quiser
+
+Route::delete('/products/{id}', [ProductsController::class, 'delete']); //rota definida para excluir produto

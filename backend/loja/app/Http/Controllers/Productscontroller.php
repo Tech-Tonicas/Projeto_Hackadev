@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class Productscontroller extends Controller
 {
@@ -79,14 +80,24 @@ class Productscontroller extends Controller
          return response('Erro ao atualizar', 400);
      }
 
-//deletar produto
-     public function delete(int $id)
-    {
-        // faz a exclusão do produto
-    } 
+//deletar um produto pelo id
+public function delete(int $id) 
+{
+
+    Log::info('chegou');
+   $produto = Product::findOrFail($id);
+    if($produto->delete()) {
+        return response()->json([
+            'id' => $produto->id,
+            'mensagem' => 'Produto excluído com sucesso!'
+        ], 202);
+} else {
+return response()->json ('Erro ao excluir produto', 400);
+}
+
 
 //upload de imagens
-public function uploadUrlImagem(Request $request)
+function uploadUrlImagem(Request $request)
 {
     // Para encontrar a imagem, rodar:
     // php artisan storage:link
@@ -110,6 +121,5 @@ public function uploadUrlImagem(Request $request)
     return response('Erro ao salvar a imagem', 400);
 }
 
-
+}
 } 
- 
