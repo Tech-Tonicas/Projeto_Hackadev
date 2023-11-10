@@ -44,25 +44,36 @@ class Productscontroller extends Controller
     }
     
 
-      //metodo que filtra o produto por categorias
-     public function getAll(Request $request)
-     {
-       // se tem: ?category=valor
-       $categorias = $request->input('categorias');
+    public function getAll(Request $request)
+    {
+        $busca = $request->input('pesquisa');
+        $categorias = $request->input('categorias');
+        $order = $request->input('order');
 
-       // se tem: ?name=valor
-       $nome = $request->input('nome');
+        $query = Product::query();
 
-       if ($categorias) {
-           $products = Product::where('categorias', $categorias)->get();
-       } elseif ($nome) {
-           $products = Product::where('nome', $nome)->get();
-       } else {
-           $products = Product::all();
-       }
+        if ($busca) {
+            $query->where(function ($query) use ($busca) {
+                $query->where('name', 'like', "%$busca%")
+                  ->orWhere('description', 'like', "%$busca%")
+                  ->orWhere('category', 'like', "%$busca%");
+            });
+        }
 
-       return response()->json($products);//pega um produto do banco de dados
-     } 
+        if ($categorias) {
+            $query->where('categorias', $categorias);
+        }
+
+        if ($order) {
+            [$campo, $ordenacao] = explode(':', $order);
+            $query->orderBy($campo, $ordenacao);
+        }
+
+        $products = $query->get();
+
+        return response()->json($products);
+    }
+
 
 
      public function update(int $id, Request $request)
