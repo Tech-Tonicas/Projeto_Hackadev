@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -55,7 +55,7 @@ Future<void> cadastrarProdutos(
   String cor,
   String descricao,
 ) async {
-  await http.post(Uri.parse('http://localhost:8080/products'),
+  await http.post(Uri.parse('http://127.0.0.1:8000/api/products'),
       headers: <String, String>{'Content-type': 'application/json'},
       body: jsonEncode(<String, dynamic>{
         "fabricante": fabricante,
@@ -70,7 +70,7 @@ Future<void> cadastrarProdutos(
 }
 
 Future<List<Produto>> selecionarProdutos() async {
-  var retorno = await http.get(Uri.parse('http://localhost:8080/products'));
+  var retorno = await http.get(Uri.parse('http://127.0.0.1:8000/api/products'));
   var dados = jsonDecode(retorno.body);
   List<Produto> produtos = [];
   for (var obj in dados) {
@@ -89,6 +89,8 @@ Future<List<Produto>> selecionarProdutos() async {
   }
   return produtos;
 }
+
+
 
 class ConteudoPagina extends State {
   String? fabricante;
@@ -151,13 +153,15 @@ class ConteudoPagina extends State {
                         });
                       },
                     ),
+
+                    
                     TextField(
                       decoration: const InputDecoration(
                         hintText: 'Digite o preço',
                       ),
                       onChanged: (valor) {
                         setState(() {
-                          preco = double.tryParse(valor);
+                          preco = double.tryParse(valor) ?? 0;
                         });
                       },
                     ),
@@ -251,4 +255,6 @@ class ConteudoPagina extends State {
       ),
     );
   }
-}
+
+  
+} 

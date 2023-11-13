@@ -20,15 +20,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// criar os produtos Localhost:8000/api/products
+// criar os produtos Localhost:8080/api/products
 //essa rota post é chamada na view
 Route::post('/products', [Productscontroller::class, 'create']);//create:metodo,coloca o nome que quiser/é usado no controller
 Route::get('/products/{id}', [Productscontroller::class, 'getProduct']);//pega produto por id
 Route::get('/products', [Productscontroller::class, 'getAll']);//pega produto filtra produto por categorias e nome
 Route::put('/products/{id}', [ProductsController::class, 'update']);//alterar produto
-
+Route::delete('products/{id}', [ProductsController::class, 'delete']);
+Route::get('/products', [Productscontroller::class, 'getSearch']);
 
 //upload das imagens
 Route::post('/products/urlImagem', [Productscontroller::class, 'uploadUrlImagem']);// uploadProfile é o metodo ,vc coloca o nome que quiser
 
-Route::delete('/products/{id}', [ProductsController::class, 'delete']); //rota definida para excluir produto
+Route::get('/storage/{path}', function (string $path) {
+    $storeUrl = 'public/products/';
+    $imagem = Storage::get($storeUrl . $path);
+    $mime = Storage::mimeType($storeUrl . $path);
+    
+    return response($imagem, 200)
+            ->header('Content-Type', $mime);
+});

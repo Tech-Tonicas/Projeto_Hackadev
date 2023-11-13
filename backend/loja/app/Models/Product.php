@@ -29,6 +29,10 @@ class Product extends Model
         'descricao'
     ];
 
+    protected $casts = [
+        'valor' => 'double'
+    ];
+
     // Vamos criar um mutator para alterar a URL quando
     // for solicitada
     public function urlImagem(): Attribute

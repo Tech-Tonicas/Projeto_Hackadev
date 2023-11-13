@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
 
 class Productscontroller extends Controller
 {
@@ -19,7 +18,6 @@ class Productscontroller extends Controller
     {
         return view('front_products');
     }
-
 
 //metodo que faz o cadastro foi passado na routes/web.php
     public function create(Request $request) //cria/pegar os dados vindo do formulário
@@ -44,37 +42,46 @@ class Productscontroller extends Controller
     }
     
 
-    public function getAll(Request $request)
-    {
-        $busca = $request->input('pesquisa');
-        $categorias = $request->input('categorias');
-        $order = $request->input('order');
+      //metodo que filtra o produto por categorias
+     public function getAll(Request $request)
+     {
+       // se tem: ?category=valor
+       $categorias = $request->input('categorias');
 
-        $query = Product::query();
+       // se tem: ?name=valor
+       $nome = $request->input('nome');
 
-        if ($busca) {
-            $query->where(function ($query) use ($busca) {
-                $query->where('name', 'like', "%$busca%")
-                  ->orWhere('description', 'like', "%$busca%")
-                  ->orWhere('category', 'like', "%$busca%");
-            });
-        }
+       if ($categorias) {
+           $products = Product::where('categorias', $categorias)->get();
+       } elseif ($nome) {
+           $products = Product::where('nome', $nome)->get();
+       } else {
+           $products = Product::all();
+       }
 
-        if ($categorias) {
-            $query->where('categorias', $categorias);
-        }
+       return response()->json($products);//pega um produto do banco de dados
+     } 
 
-        if ($order) {
-            [$campo, $ordenacao] = explode(':', $order);
-            $query->orderBy($campo, $ordenacao);
-        }
-
-        $products = $query->get();
-
-        return response()->json($products);
-    }
-
-
+  //pega produtos por nome, etc
+  public function getSearch(Request $request)
+  {
+      // se tem: ?category=valor
+      $nome = $request->input('nome');
+  
+      // se tem: ?name=valor
+      $descricao = $request->input('descricao');
+  
+      if ($nome) {
+          $products = Product::where('nome', 'like', "%$nome%")->get();
+      } elseif ($descricao) {
+          $products = Product::where('descricao', 'like', "%$descricao%")->get();
+      } else {
+          $products = Product::all();
+      }
+  
+      return response()->json($products);
+  }
+  
 
      public function update(int $id, Request $request)
      {
@@ -91,46 +98,42 @@ class Productscontroller extends Controller
          return response('Erro ao atualizar', 400);
      }
 
-//deletar um produto pelo id
-public function delete(int $id) 
-{
-
-    Log::info('chegou');
-   $produto = Product::findOrFail($id);
-    if($produto->delete()) {
-        return response()->json([
-            'id' => $produto->id,
-            'mensagem' => 'Produto excluído com sucesso!'
-        ], 202);
-} else {
-return response()->json ('Erro ao excluir produto', 400);
-}
-
-
-//upload de imagens
-function uploadUrlImagem(Request $request)
-{
-    // Para encontrar a imagem, rodar:
-    // php artisan storage:link
-
-    // se há um arquivo no campo "profile"
-    if ($request->hasFile('profile')) {
-        // .png | .jpg | .jpeg 
-        $extensao = $request->file('profile')->extension();
-        
-        // storePubliclyAs armazena o arquivo temporario na pasta informada
-        // na área pública: pasta "public" do projeto
-        $nomeArquivo = uniqid();
-        $path = $request->file('profile')->storePubliclyAs('public/products', "$nomeArquivo." . $extensao);
-
-        // respondemos com um link
-        return response()->json([
-            'url' => Storage::url($path)
-        ]);
+//deletar produto
+public function delete(int $id)
+    {
+        $produto = Product::findOrFail($id);
+        if ($produto->delete()) {
+            return response()->json([
+                'id' => $produto->id,
+                'mensagem' => 'Produto excluido com sucesso'
+            ], 202);
+        }
+        return response('Erro ao excluir', 400);
     }
 
-    return response('Erro ao salvar a imagem', 400);
-}
+//upload de imagens
+public function uploadUrlImagem(Request $request)
+    {
+        // Para encontrar a imagem, rodar:
+        // php artisan storage:link
 
-}
+        // se há um arquivo no campo "urlImagem"
+        if ($request->hasFile('urlImagem')) {
+            // .png | .jpg | .jpeg 
+            $extensao = $request->file('urlImagem')->extension();
+            
+            // storePubliclyAs armazena o arquivo temporario na pasta informada
+            // na área pública: pasta "public" do projeto
+            $nomeArquivo = uniqid();
+            $path = $request->file('urlImagem')->storePubliclyAs('public/products', "$nomeArquivo." . $extensao);
+
+            // respondemos com um link
+            return response()->json([
+                'url' => Storage::url($path)
+            ]);
+        }
+
+        return response('Erro ao salvar a imagem', 400);
+    }
+
 } 

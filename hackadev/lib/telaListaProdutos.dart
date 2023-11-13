@@ -169,7 +169,7 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
   Future<void> fetchProdutos() async {
     final Map<String, String> headers = {"Content-Type": "application/json"};
     final response = await http.get(
-      Uri.parse('http://localhost:8080/products'),
+      Uri.parse('http://127.0.0.1:8000/api/products'),
       headers: headers,
     );
 
@@ -223,8 +223,8 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsets.all(8),
-                                      child: Image.asset(
-                                        produto[j]['urlImagem'] ?? '',
+                                      child: Image.network(
+                                        produto[j]['urlimagem'] ?? '',
                                         height: 200,
                                          width: 200,//
                                         fit: BoxFit.cover,//contain
@@ -279,14 +279,7 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
                                                 },
                                               ),
                                               SizedBox(width: 8),
-                                              Text(
-                                                produto[j]['avaliacao']
-                                                        ?.toString() ?? '', // Verifique se é nulo
-                                                style: TextStyle(
-                                                  fontSize: 11,
-                                                  color: Color(0xFFFF9017),
-                                                ),
-                                              ),
+                                              
                                             ],
                                           ),
                                         ],
@@ -319,5 +312,7 @@ class _TelaListaProdutosState extends State<TelaListaProdutos> {
         });
   }
 }
+ 
+ 
  
  */
